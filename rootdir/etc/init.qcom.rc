@@ -236,31 +236,37 @@ service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     user vendor_qrtr
     group vendor_qrtr
     capabilities NET_BIND_SERVICE
+    writepid /dev/cpuset/system-background/tasks
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     shutdown critical
     ioprio rt 0
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.tftp_server /vendor/bin/tftp_server
     class core
     user root
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.sensors /vendor/bin/sscrpcd sensorspd
     class early_hal
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 -dd \
@@ -282,6 +288,7 @@ service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     user system
     group system inet net_admin wifi
     capabilities NET_ADMIN
+    writepid /dev/cpuset/system-background/tasks
 
 on property:sys.shutdown.requested=*
     write /sys/kernel/shutdown_wlan/shutdown 1
@@ -291,6 +298,7 @@ service vendor.loc_launcher /vendor/bin/loc_launcher
     class late_start
     user gps
     group gps
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.qcom-sh /vendor/bin/init.qcom.sh
     class late_start
@@ -317,6 +325,7 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqb
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
