@@ -98,3 +98,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 # Sepolicy
 TARGET_SEPOLICY_DIR := msmsteppe
 include device/qcom/sepolicy/sepolicy.mk
+
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
