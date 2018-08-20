@@ -353,6 +353,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
+# Overlays
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.sm6150-libperfmgr
