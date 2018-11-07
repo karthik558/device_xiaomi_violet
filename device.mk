@@ -279,6 +279,8 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+PRODUCT_ENFORCE_RRO_TARGETS += *
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
