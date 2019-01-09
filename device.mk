@@ -235,6 +235,9 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
 # QTI
+PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect.vendor
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/product_privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
