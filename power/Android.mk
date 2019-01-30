@@ -20,6 +20,9 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := power-feature.c
 LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_HEADER_LIBRARIES := \
+    generated_kernel_headers \
+    libhardware_headers
 
 LOCAL_MODULE := libpower_feature.davinci
 LOCAL_MODULE_TAGS := optional
