@@ -74,6 +74,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/security/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.davinci
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/security/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
