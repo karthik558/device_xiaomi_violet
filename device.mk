@@ -151,6 +151,17 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.davinci
 
 # Media
+PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/security/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
