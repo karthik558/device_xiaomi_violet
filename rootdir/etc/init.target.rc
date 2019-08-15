@@ -144,7 +144,7 @@ service vendor.remosaic_daemon /vendor/bin/remosaic_daemon
     group camera
 
 service vendor.nv_mac /vendor/bin/nv_mac
-    class late_start
+    class main
     user system
     group system inet net_admin wifi net_raw
     oneshot
