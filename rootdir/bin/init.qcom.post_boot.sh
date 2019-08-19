@@ -213,8 +213,6 @@ case "$target" in
         done
 
     done
-    # Turn on sleep modes.
-    echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
     # Set Memory parameters
     configure_memory_parameters
