@@ -14,8 +14,6 @@ LOCAL_SRC_FILES:= \
 LOCAL_SHARED_LIBRARIES := \
     liblog \
     libhidlbase \
-    libhidltransport \
-    libhwbinder \
     libcutils \
     libutils \
     android.hardware.health@1.0 \
@@ -33,5 +31,3 @@ LOCAL_MODULE := liblocbatterylistener_headers
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)
 
 include $(BUILD_HEADER_LIBRARY)
-
-
