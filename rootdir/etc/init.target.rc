@@ -83,7 +83,9 @@ on boot
     start rmt_storage
     start rfs_access
 
+    # Set thermal mode to evaluation
     chown system system /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig 10
 
 on property:sys.boot_completed=1
     # Runtime fs tuning
