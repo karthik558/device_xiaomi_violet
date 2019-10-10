@@ -29,6 +29,7 @@
 
 #include <fstream>
 #include <unistd.h>
+#include <vector>
 
 #include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
@@ -40,42 +41,59 @@
 using android::base::GetProperty;
 using android::init::property_set;
 
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "bootimage.",
+    "odm.",
+    "product.",
+    "system.",
+    "vendor.",
+};
 
-void property_override(char const prop[], char const value[])
+void property_override(char const prop[], char const value[], bool add = true)
 {
     prop_info *pi;
-    pi = (prop_info*) __system_property_find(prop);
+
+    pi = (prop_info *) __system_property_find(prop);
     if (pi)
         __system_property_update(pi, value, strlen(value));
-    else
+    else if (add)
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
-void property_override_dual(char const system_prop[],
-    char const vendor_prop[], char const value[])
-{
-    property_override(system_prop, value);
-    property_override(vendor_prop, value);
-}
+
+void set_ro_build_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro." + source + "build." + prop;
+        property_override(prop_name.c_str(), value.c_str(), false);
+    }
+};
+
+void set_ro_product_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro.product." + source + prop;
+        property_override(prop_name.c_str(), value.c_str(), false);
+    }
+};
 
 void vendor_load_properties() {
     std::string region;
     region = GetProperty("ro.boot.hwc", "GLOBAL");
 
     if (region == "GLOBAL") {
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "Mi 9T");
-        property_override_dual("ro.product.device", "ro.product.vendor.device", "davinci");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.5.0.QFJMIXM:user/release-keys");
+        set_ro_product_prop("model", "Mi 9T");
+        set_ro_product_prop("device", "davinci");
+        set_ro_build_prop("fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.5.0.QFJMIXM:user/release-keys");
         property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.5.0.QFJMIXM release-keys");
         property_override("ro.product.mod_device", "davinci_global");
     } else if (region == "CN") {
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "Redmi K20");
-        property_override_dual("ro.product.device", "ro.product.vendor.device",  "davinci");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys");
+        set_ro_product_prop("model", "Redmi K20");
+        set_ro_product_prop("device", "davinci");
+        set_ro_build_prop("fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys");
         property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJCNXM release-keys");
     } else if (region == "INDIA") {
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "Redmi K20");
-        property_override_dual("ro.product.device", "ro.product.vendor.device",  "davinciin");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.3.0.QFJINXM:user/release-keys");
+        set_ro_product_prop("model", "Redmi K20");
+        set_ro_product_prop("device", "davinciin");
+        set_ro_build_prop("fingerprint", "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.3.0.QFJINXM:user/release-keys");
         property_override("ro.build.description", "davinciin-user 10 QKQ1.190825.002 V11.0.3.0.QFJINXM release-keys");
         property_override("ro.product.mod_device", "davinciin_in_global");
     }
