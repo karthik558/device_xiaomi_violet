@@ -260,6 +260,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
+# Product characteristics
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # QTI
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor
