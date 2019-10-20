@@ -401,6 +401,12 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel
 
+# RCS
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    PresencePolling \
+    RcsService
+
 # Telephony
 PRODUCT_PACKAGES += \
     qti_telephony_hidl_wrapper.xml \
