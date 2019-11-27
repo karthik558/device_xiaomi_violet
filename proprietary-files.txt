@@ -131,8 +131,6 @@ vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
 vendor/lib64/libmialgoengine.so
 vendor/lib64/libmibokeh_712.so
-vendor/lib64/libmivendor_module_hall.so
-vendor/lib64/libmivendor_module_motor.so
 vendor/lib64/libmmcamera_faceproc2.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmpbase.so
@@ -272,7 +270,11 @@ vendor/firmware/CAMERA_ICP.elf
 
 # Camera motor
 vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+vendor/etc/step_motor/mi_camera_config.xml
 vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib64/libmivendor_module_calibration.so
+vendor/lib64/libmivendor_module_hall.so
+vendor/lib64/libmivendor_module_motor.so
 vendor/lib64/mi.motor.daemon.so
 
 # Camera (popup sound effects)
