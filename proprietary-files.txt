@@ -763,7 +763,7 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/bin/ssr_setup
 
 # Time
--vendor/app/TimeService/TimeService.apk
+-vendor/app/TimeService/TimeService.apk;:timeservice_app_cert
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
