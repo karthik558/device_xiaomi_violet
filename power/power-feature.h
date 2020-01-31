@@ -16,7 +16,5 @@
 
 #define LOG_TAG "libpower_feature.davinci"
 
-#define TAP_TO_WAKE_EVENT_NODE "/dev/input/event2"
-
 #define INPUT_EVENT_WAKUP_MODE_OFF 4
 #define INPUT_EVENT_WAKUP_MODE_ON 5
