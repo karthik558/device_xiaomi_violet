@@ -96,6 +96,7 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Media
 TARGET_USES_ION := true
+TARGET_DISABLED_UBWC := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
