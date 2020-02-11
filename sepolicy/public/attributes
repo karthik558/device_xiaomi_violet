@@ -1,1 +1,3 @@
 hal_attribute(motor)
+
+hal_attribute(touchfeature)

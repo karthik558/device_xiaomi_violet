@@ -5,5 +5,7 @@ allow hal_lineage_fod_default sysfs_graphics:dir r_dir_perms;
 allow hal_lineage_fod_default sysfs_graphics:file rw_file_perms;
 
 allow hal_lineage_fod_default hal_fingerprint_hwservice_xiaomi:hwservice_manager find;
+allow hal_lineage_fod_default hal_touchfeature_hwservice_xiaomi:hwservice_manager find;
 
 binder_call(hal_lineage_fod_default, hal_fingerprint_default)
+binder_call(hal_lineage_fod_default, hal_touchfeature_default)
