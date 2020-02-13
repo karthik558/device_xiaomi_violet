@@ -368,6 +368,20 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 
+# Display - from def_reteu-user-10-QPFS30.103-21-1-2-c993f-release-keys
+vendor/lib64/libdisp-aba.so|3a35a8c7120d5f0748b4584dd56b1398d1acdd69
+vendor/lib64/libdisplayqos.so|86abe8922c686f205520b6980f337dda79182bec
+vendor/lib64/libhdr_tm.so|103b2f0893a767f162ffc2945b5edea062fb0354
+vendor/lib64/libqseed3.so|4a4fbff019467a4531816ab58e259b22d95630fa
+vendor/lib64/libsdedrm.so|dbdcb66859015168a7dbc6c62d1f04b64a157e41
+vendor/lib64/libsdm-color.so|e5c120cb6acbecf5a2c344029b103d6b61fc3925
+vendor/lib64/libsdm-colormgr-algo.so|2dc1679faf4a2fab6ae0e6b0ab89c3547f83ac7d
+vendor/lib64/libsdm-diag.so|d7a96d76dd2fb7516a9ed89c39a3f0992ec3266e
+vendor/lib64/libsdm-disp-vndapis.so|aa658050b07c04b114cb43e6535fe45883943152
+vendor/lib64/libsdmextension.so|72991016a61b3d56ef91265ac76134b55636c392
+vendor/lib64/libtinyxml.so|f53f3bcd3bc2ddf39d01604a6870653df460a4f7
+vendor/lib64/libtinyxml2_1.so|ba981e332895a053a67fc54a8190365a3ad37f2d
+
 # DPM
 framework/tcmclient.jar
 product/bin/dpmd
