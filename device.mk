@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Product launched with 9.0
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/davinci/davinci-vendor.mk)
 
