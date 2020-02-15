@@ -95,6 +95,11 @@ static void handleNotification(const LightState& state) {
 
     /* Disable breathing or blinking */
     set(NOTIFICATION_LED BREATH, 0);
+    set(NOTIFICATION_LED BRIGHTNESS, 0);
+
+    if (!notificationBrightness) {
+        return;
+    }
 
     switch (state.flashMode) {
         case Flash::HARDWARE:
