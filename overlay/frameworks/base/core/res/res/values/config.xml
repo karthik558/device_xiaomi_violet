@@ -525,4 +525,19 @@
          without explicit consent of the user. If no autofill service with the
           specified name exists on the device, autofill will be disabled by default. -->
     <string name="config_defaultAutofillService" translatable="false">com.google.android.gms/.autofill.service.AutofillService</string>
+
+    <!-- Corner radius for bottom sheet system dialogs -->
+    <dimen name="config_bottomDialogCornerRadius">16.0dip</dimen>
+
+    <!-- Corner radius of system buttons -->
+    <dimen name="config_buttonCornerRadius">4.0dip</dimen>
+
+    <!-- Corner radius of system dialogs -->
+    <dimen name="config_dialogCornerRadius">8.0dip</dimen>
+
+    <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
+    <item format="float" type="dimen" name="config_fullTaskSnapshotScale">0.8</item>
+
+    <!-- Corner radius of system progress bars -->
+    <dimen name="config_progressBarCornerRadius">1000.0dip</dimen>
 </resources>
