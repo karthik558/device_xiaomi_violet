@@ -1,8 +1,14 @@
 # Audio
 /dev/socket/audio_hw_socket                                          u:object_r:audio_socket:s0
 
+# Camera
+/mnt/vendor/persist/camera(/.*)?                                     u:object_r:camera_persist_file:s0
+
 # HALs
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.davinci        u:object_r:hal_light_default_exec:s0
+
+# Remosaic
+/vendor/bin/remosaic_daemon                                          u:object_r:remosaic_daemon_exec:s0
 
 # WiFi
 /vendor/bin/nv_mac                                                   u:object_r:wcnss_service_exec:s0
