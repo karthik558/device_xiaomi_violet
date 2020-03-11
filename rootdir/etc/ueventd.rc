@@ -46,6 +46,9 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/ipa_odl_ctl          0660   radio      radio
 /dev/ipa_adpl             0660   system     oem_2905
 
+# Permissions for UFS RPMB BSG device node
+/dev/0:0:0:49476          0600   system     system
+
 # Permissions for CSVT
 /dev/smd11                0660   radio      radio
 
