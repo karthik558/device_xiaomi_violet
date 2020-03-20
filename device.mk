@@ -231,6 +231,8 @@ PRODUCT_PACKAGES += \
 # Media
 PRODUCT_PACKAGES += \
     libavservices_minijail.vendor \
+    libcodec2_vndk.vendor \
+    libcodec2_hidl@1.0.vendor \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
