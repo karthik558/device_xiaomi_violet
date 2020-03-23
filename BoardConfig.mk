@@ -17,3 +17,6 @@
 BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/davinci
+
+# Inherit from proprietary files
+include vendor/xiaomi/davinci/BoardConfigVendor.mk
