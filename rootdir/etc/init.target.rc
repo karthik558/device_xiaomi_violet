@@ -144,15 +144,6 @@ service vendor.thermal-engine /vendor/bin/thermal-engine
     socket thermal-send-rule stream 0660 system system
     group root
 
-service vendor.panel-info-sh /vendor/bin/sh /vendor/etc/init.panel_info.sh
-    class late_start
-    user root
-    oneshot
-    disabled
-
-on property:sys.boot_completed=1
-    start vendor.panel-info-sh
-
 service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     class main
     user root
