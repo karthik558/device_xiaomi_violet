@@ -48,7 +48,8 @@ PRODUCT_COPY_FILES += \
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
 
 # QTI
 PRODUCT_COPY_FILES += \
