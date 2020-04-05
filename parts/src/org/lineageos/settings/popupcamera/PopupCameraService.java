@@ -134,9 +134,23 @@ public class PopupCameraService extends Service implements Handler.Callback {
         }
     }
 
+    private void onBootCompleted(){
+        try {
+            int status = mMotor.getMotorStatus();
+            if (status == Constants.MOTOR_STATUS_POPUP ||
+                    status == Constants.MOTOR_STATUS_TAKEBACK_JAM) {
+                if (DEBUG) Log.d(TAG, "Opened front camera detected, taking back");
+                mMotor.takebackMotor(1);
+            }
+        } catch (RemoteException e) {
+            // Do nothing
+        }
+    }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (DEBUG) Log.d(TAG, "Starting service");
+        onBootCompleted();
         return START_STICKY;
     }
 
