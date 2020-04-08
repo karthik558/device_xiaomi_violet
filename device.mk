@@ -87,6 +87,10 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.2-service-qti
+
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
