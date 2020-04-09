@@ -95,6 +95,9 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Platform
 TARGET_BOARD_PLATFORM := sm6150
 
+# Power
+TARGET_POWER_SET_FEATURE_LIB := libpower_feature.davinci
+
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
 
