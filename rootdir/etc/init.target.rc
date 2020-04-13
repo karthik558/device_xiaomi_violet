@@ -487,10 +487,10 @@ service energy-awareness /system/vendor/bin/energy-awareness
     group system
     oneshot
 
-#service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
-#    class main
-#    user root
-#    group system wakelock
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
+    class main
+    user root
+    group system wakelock
 
 on property:vendor.audio.cit.spkcal.copy=true
     copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
