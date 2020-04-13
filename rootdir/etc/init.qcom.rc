@@ -899,7 +899,7 @@ service crashdata-sh /vendor/bin/init.qcom.crashdata.sh
     user root
     oneshot
 
-service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
+service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
     group root system wakelock graphics
@@ -926,7 +926,7 @@ service wifi-crda /vendor/bin/init.crda.sh
    oneshot
 
 on property:sys.boot_completed=1
-    start qcom-post-boot
+    start vendor.qcom-post-boot
     start qti-testscripts
 
 on property:ro.vendor.ril.mbn_copy_completed=1
@@ -1104,13 +1104,6 @@ service esepmdaemon /system/vendor/bin/esepmdaemon
     class core
     user system
     group nfc
-
-on charger
-    load_system_props
-    start qcom-post-boot
-    wait /dev/block/bootdevice/by-name/system
-    mount ext4 /dev/block/bootdevice/by-name/system / ro barrier=1
-    setprop sys.usb.config adb
 
 #add poweroffhandler
 service poweroffhandler /system/vendor/bin/poweroffhandler
