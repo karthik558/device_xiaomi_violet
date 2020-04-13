@@ -521,6 +521,12 @@ service remosaic_daemon /system/vendor/bin/remosaic_daemon
    user camera
    group camera
 
+service nv_mac /vendor/bin/nv_mac
+    class late_start
+    user system
+    group system inet net_admin wifi net_raw
+    oneshot
+
 on post-fs-data
     chmod 0666 /dev/migt
     restorecon /dev/migt
