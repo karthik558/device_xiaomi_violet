@@ -291,6 +291,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     hostapd \
+    ipacm \
+    IPACM_cfg.xml \
     libwifi-hal-qcom \
     libwpa_client \
     wpa_supplicant \
