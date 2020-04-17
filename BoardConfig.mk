@@ -98,6 +98,9 @@ TARGET_BOARD_PLATFORM := sm6150
 # Power
 TARGET_POWER_SET_FEATURE_LIB := libpower_feature.davinci
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
 
