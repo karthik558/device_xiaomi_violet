@@ -874,6 +874,13 @@ vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/tcs3701.json
 vendor/etc/sensors/sns_reg_config
 
+# Soter
+-vendor/app/SoterService/SoterService.apk
+vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
+vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.soter@1.0.so
+
 # SSR
 vendor/bin/ssr_setup
 
