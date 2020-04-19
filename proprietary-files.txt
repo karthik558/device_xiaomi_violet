@@ -480,6 +480,11 @@ vendor/firmware/a615_zap.mdt
 vendor/firmware/a630_gmu.bin
 vendor/firmware/a630_sqe.fw
 
+# Gatekeeper
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
+vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
+vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
+
 # IMS
 lib64/libdiag_system.so
 -product/app/uceShimService/uceShimService.apk
