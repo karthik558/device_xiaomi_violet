@@ -368,6 +368,16 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
 vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 
+# Configstore
+vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
+vendor/etc/configstore/vpp.configstore.xml
+vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
+-vendor/lib64/libplatformconfig.so
+vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
+-vendor/lib/libplatformconfig.so
+vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
+
 # Display - from def_reteu-user-10-QPFS30.103-21-1-2-c993f-release-keys
 vendor/lib64/libdisp-aba.so|3a35a8c7120d5f0748b4584dd56b1398d1acdd69
 vendor/lib64/libdisplayqos.so|86abe8922c686f205520b6980f337dda79182bec
