@@ -641,3 +641,7 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 
 # SSR
 vendor/bin/ssr_setup
+
+# Touchscreen firmware
+vendor/firmware/goodix_gt9886_limit_f10_first.tporder
+vendor/firmware/goodix_gt9886_limit_f10_second.tporder
