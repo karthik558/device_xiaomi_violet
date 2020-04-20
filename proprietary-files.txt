@@ -569,6 +569,9 @@ vendor/lib/vendor.qti.hardware.vpp@1.1.so
 vendor/lib/vendor.qti.hardware.vpp@1.2.so
 vendor/lib/vendor.qti.hardware.vpp@1.3.so
 
+# NFC
+vendor/lib/libsn100u_fw.so
+
 # Perf
 vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
 vendor/bin/msm_irqbalance
