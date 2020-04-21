@@ -816,6 +816,11 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 # SSR
 vendor/bin/ssr_setup
 
+# Thermal
+vendor/bin/thermal-engine
+vendor/etc/thermal-engine.conf
+vendor/lib64/libthermalclient.so
+
 # Time
 -vendor/app/TimeService/TimeService.apk;:timeservice_app_cert
 vendor/bin/time_daemon
