@@ -560,6 +560,16 @@ vendor/lib64/vendor.qti.imsrtpservice@2.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1.so
 
+# IPA
+vendor/etc/init/ipa_fws.rc
+vendor/firmware/ipa_fws.b00
+vendor/firmware/ipa_fws.b01
+vendor/firmware/ipa_fws.b02
+vendor/firmware/ipa_fws.b03
+vendor/firmware/ipa_fws.b04
+vendor/firmware/ipa_fws.elf
+vendor/firmware/ipa_fws.mdt
+
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
@@ -755,3 +765,11 @@ vendor/bin/ssr_setup
 # Touchscreen firmware
 vendor/firmware/goodix_gt9886_limit_f10_first.tporder
 vendor/firmware/goodix_gt9886_limit_f10_second.tporder
+
+# WLAN
+vendor/bin/cnss-daemon
+vendor/lib64/libqsap_sdk.so
+vendor/lib/libqsap_sdk.so
+
+# Xiaomi MAC
+vendor/bin/nv_mac
