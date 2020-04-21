@@ -94,3 +94,7 @@ BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
+# Sepolicy
+TARGET_SEPOLICY_DIR := msmsteppe
+include device/qcom/sepolicy/sepolicy.mk
