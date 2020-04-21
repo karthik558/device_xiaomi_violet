@@ -184,3 +184,9 @@ vendor/lib64/camera/fdconfigvideolite.bin
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
+
+# Camera motor
+vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib64/mi.motor.daemon.so
+vendor/lib64/vendor.xiaomi.hardware.motor@1.0.so
