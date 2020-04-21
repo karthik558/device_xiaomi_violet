@@ -27,6 +27,11 @@ $(call inherit-product, vendor/xiaomi/davinci/davinci-vendor.mk)
 PRODUCT_PACKAGES += \
     fs_config_files
 
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    antradio_app
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
