@@ -82,22 +82,36 @@ void vendor_load_properties() {
     std::string region;
     region = GetProperty("ro.boot.hwc", "GLOBAL");
 
+    std::string model;
+    std::string device;
+    std::string fingerprint;
+    std::string description;
+    std::string mod_device;
+
     if (region == "GLOBAL") {
-        set_ro_product_prop("model", "Mi 9T");
-        set_ro_product_prop("device", "davinci");
-        set_ro_build_prop("fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.5.0.QFJMIXM:user/release-keys");
-        property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.5.0.QFJMIXM release-keys");
-        property_override("ro.product.mod_device", "davinci_global");
+        model = "Mi 9T";
+        device = "davinci";
+        fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.5.0.QFJMIXM:user/release-keys";
+        description = "davinci-user 10 QKQ1.190825.002 V11.0.5.0.QFJMIXM release-keys";
+        mod_device = "davinci_global";
     } else if (region == "CN") {
-        set_ro_product_prop("model", "Redmi K20");
-        set_ro_product_prop("device", "davinci");
-        set_ro_build_prop("fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys");
-        property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJCNXM release-keys");
+        model = "Redmi K20";
+        device = "davinci";
+        fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys";
+        description = "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJCNXM release-keys";
     } else if (region == "INDIA") {
-        set_ro_product_prop("model", "Redmi K20");
-        set_ro_product_prop("device", "davinciin");
-        set_ro_build_prop("fingerprint", "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.3.0.QFJINXM:user/release-keys");
-        property_override("ro.build.description", "davinciin-user 10 QKQ1.190825.002 V11.0.3.0.QFJINXM release-keys");
-        property_override("ro.product.mod_device", "davinciin_in_global");
+        model = "Redmi K20";
+        device = "davinciin";
+        fingerprint = "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.3.0.QFJINXM:user/release-keys";
+        description = "davinciin-user 10 QKQ1.190825.002 V11.0.3.0.QFJINXM release-keys";
+        mod_device = "davinciin_in_global";
+    }
+
+    set_ro_build_prop("fingerprint", fingerprint);
+    set_ro_product_prop("device", device);
+    set_ro_product_prop("model", model);
+    property_override("ro.build.description", description.c_str());
+    if (mod_device != "") {
+        property_override("ro.product.mod_device", mod_device.c_str());
     }
 }
