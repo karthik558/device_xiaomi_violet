@@ -64,7 +64,10 @@ void property_override(char const prop[], char const value[], bool add = true)
 void set_ro_build_prop(const std::string &prop, const std::string &value) {
     for (const auto &source : ro_props_default_source_order) {
         auto prop_name = "ro." + source + "build." + prop;
-        property_override(prop_name.c_str(), value.c_str(), false);
+        if (source == "")
+            property_override(prop_name.c_str(), value.c_str());
+        else
+            property_override(prop_name.c_str(), value.c_str(), false);
     }
 };
 
