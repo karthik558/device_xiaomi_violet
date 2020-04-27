@@ -817,8 +817,19 @@ vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/bin/ssr_setup
 
 # Thermal
+init.mi_thermald.rc:vendor/etc/init/init.mi_thermald.rc
+vendor/bin/mi_thermald
 vendor/bin/thermal-engine
+vendor/etc/thermal-arvr.conf
+vendor/etc/thermal-camera.conf
+vendor/etc/thermal-chg-only.conf
 vendor/etc/thermal-engine.conf
+vendor/etc/thermal-map.conf
+vendor/etc/thermal-nolimits.conf
+vendor/etc/thermal-normal.conf
+vendor/etc/thermal-phone.conf
+vendor/etc/thermal-tgame.conf
+vendor/etc/thermald-devices.conf
 vendor/lib64/libthermalclient.so
 
 # Time
