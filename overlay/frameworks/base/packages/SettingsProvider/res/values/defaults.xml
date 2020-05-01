@@ -19,4 +19,16 @@
 <resources>
     <!-- Set the automatic brightness mode on by default -->
     <bool name="def_screen_brightness_automatic_mode">true</bool>
+
+    <!-- Disable UI touch sounds by default -->
+    <bool name="def_sound_effects_enabled">false</bool>
+
+    <!-- Disable dial pad tones by default -->
+    <bool name="def_dtmf_tones_enabled">false</bool>
+
+    <!-- Disable screen locking sounds by default -->
+    <integer name="def_lockscreen_sounds_enabled">0</integer>
+
+    <!-- Enable vibrate for calls by default -->
+    <bool name="def_vibrate_when_ringing">true</bool>
 </resources>
