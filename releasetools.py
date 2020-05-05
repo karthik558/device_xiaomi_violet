@@ -1,6 +1,6 @@
 # Copyright (C) 2009 The Android Open Source Project
-# Copyright (C) 2019 The Mokee Open Source Project
-# Copyright (C) 2020 The LineageOS Open Source Project
+# Copyright (c) 2011, The Linux Foundation. All rights reserved.
+# Copyright (C) 2017-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ def FullOTA_Assertions(info):
   return
 
 def IncrementalOTA_Assertions(info):
-  AddBasebandAssertion(info, info.input_zip)
+  AddBasebandAssertion(info, info.target_zip)
   return
 
 def FullOTA_InstallEnd(info):
@@ -33,6 +33,15 @@ def IncrementalOTA_InstallEnd(info):
   OTA_InstallEnd(info)
   return
 
+def AddBasebandAssertion(info, input_zip):
+  android_info = input_zip.read("OTA/android-info.txt")
+  variants = []
+  for variant in ('in', 'cn', 'eea'):
+    variants.append(re.search(r'require\s+version-{}\s*=\s*(\S+)'.format(variant), android_info).group(1).split(','))
+  cmd = 'assert(getprop("ro.boot.hwc") == "{0}" && (xiaomi.verify_baseband("{2}", "{1}") == "1" || abort("ERROR: This package requires baseband from atleast {2}. Please upgrade firmware and retry!");) || true);'
+  for variant in variants:
+    info.script.AppendExtra(cmd.format(*variant))
+
 def AddImage(info, basename, dest):
   name = basename
   data = info.input_zip.read("IMAGES/" + basename)
@@ -41,18 +50,6 @@ def AddImage(info, basename, dest):
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
 
 def OTA_InstallEnd(info):
-  AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
   AddImage(info, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
-  return
-
-def AddBasebandAssertion(info, input_zip):
-  android_info = input_zip.read("OTA/android-info.txt")
-  m = re.search(r'require\s+version-baseband\s*=\s*(.+)', android_info)
-  if m:
-    timestamp, firmware_version = m.group(1).rstrip().split(',')
-    timestamps = timestamp.split('|')
-    if ((len(timestamps) and '*' not in timestamps) and \
-        (len(firmware_version) and '*' not in firmware_version)):
-      cmd = 'assert(xiaomi.verify_baseband(' + ','.join(['"%s"' % baseband for baseband in timestamps]) + ') == "1" || abort("ERROR: This package requires firmware from MIUI {1} or newer. Please upgrade firmware and retry!"););'
-      info.script.AppendExtra(cmd.format(timestamps, firmware_version))
+  AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
   return
