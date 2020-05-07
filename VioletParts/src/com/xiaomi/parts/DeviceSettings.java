@@ -60,11 +60,17 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private static final String PREF_CLEAR_SPEAKER = "clear_speaker_settings";
 
+    final static String PREF_TORCH_BRIGHTNESS = "torch_brightness";
+    public static final String TORCH_1_BRIGHTNESS_PATH = "/sys/devices/soc/soc:qcom," +
+            "camera-flash/driver/soc:qcom,camera-flash/leds/torch-light0/max_brightness";
+    public static final String TORCH_2_BRIGHTNESS_PATH = "/sys/devices/soc/soc:qcom," +
+            "camera-flash/driver/soc:qcom,camera-flash/leds/torch-light1/max_brightness";
 
     private Preference mKcal;
     private SecureSettingSwitchPreference mFastcharge;
     private SwitchPreference mSelinuxMode;
     private SwitchPreference mSelinuxPersistence;
+    private CustomSeekBarPreference mTorchBrightness;
     private SecureSettingSwitchPreference mEnableDirac;
     private Preference mClearSpeakerPref;
     private SecureSettingListPreference mHeadsetType;
@@ -140,6 +146,11 @@ public class DeviceSettings extends PreferenceFragment implements
         fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));
         fpsInfo.setOnPreferenceChangeListener(this);
 
+        mTorchBrightness = (CustomSeekBarPreference) findPreference(PREF_TORCH_BRIGHTNESS);
+        mTorchBrightness.setEnabled(FileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH) &&
+                FileUtils.fileWritable(TORCH_2_BRIGHTNESS_PATH));
+        mTorchBrightness.setOnPreferenceChangeListener(this);
+
         // SELinux
         Preference selinuxCategory = findPreference(SELINUX_CATEGORY);
         mSelinuxMode = (SwitchPreference) findPreference(PREF_SELINUX_MODE);
@@ -209,6 +220,11 @@ public class DeviceSettings extends PreferenceFragment implements
                 }
                 break;
 
+
+            case PREF_TORCH_BRIGHTNESS:
+                FileUtils.setValue(TORCH_1_BRIGHTNESS_PATH, (int) value);
+                FileUtils.setValue(TORCH_2_BRIGHTNESS_PATH, (int) value);
+                break;
 
             default:
                 break;
