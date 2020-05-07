@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2018 The Asus-SDM660 Project
+ * Copyright (c) 2020 ronaxdevil <pratabidya.007@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -127,6 +128,12 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
 
         FileUtils.setValue(DeviceSettings.USB_FASTCHARGE_PATH, Settings.Secure.getInt(context.getContentResolver(),
                 DeviceSettings.PREF_USB_FASTCHARGE, 0));
+        FileUtils.setValue(DeviceSettings.TORCH_1_BRIGHTNESS_PATH,
+                Settings.Secure.getInt(context.getContentResolver(),
+                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
+        FileUtils.setValue(DeviceSettings.TORCH_2_BRIGHTNESS_PATH,
+                Settings.Secure.getInt(context.getContentResolver(),
+                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
 	// Dirac
         context.startService(new Intent(context, DiracService.class));
     }
