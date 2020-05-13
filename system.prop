@@ -26,6 +26,9 @@ ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=22,22
 telephony.lteOnCdmaDevice=1
 
+# Recovery
+ro.recovery.ui.margin_height=48
+
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
 
