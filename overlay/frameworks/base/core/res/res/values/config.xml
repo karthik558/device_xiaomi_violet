@@ -597,9 +597,6 @@
     <!-- Height of the status bar in portrait -->
     <dimen name="status_bar_height_portrait">35.0dip</dimen>
 
-    <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">103px</dimen>
-
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
