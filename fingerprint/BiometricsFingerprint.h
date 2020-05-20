@@ -17,12 +17,20 @@
 #ifndef ANDROID_HARDWARE_BIOMETRICS_FINGERPRINT_V2_1_BIOMETRICSFINGERPRINT_H
 #define ANDROID_HARDWARE_BIOMETRICS_FINGERPRINT_V2_1_BIOMETRICSFINGERPRINT_H
 
-#include <log/log.h>
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sm6150"
+
 #include <android/log.h>
+#include <cutils/properties.h>
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
+#include <hardware/hw_auth_token.h>
+#include <hidl/HidlTransportSupport.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
+#include <inttypes.h>
+#include <log/log.h>
+#include <unistd.h>
+
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 
 namespace android {
@@ -40,6 +48,7 @@ using ::android::hardware::Void;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::hidl_string;
 using ::android::sp;
+using ::android::status_t;
 
 struct BiometricsFingerprint : public IBiometricsFingerprint {
 public:
