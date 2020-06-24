@@ -2142,6 +2142,10 @@
         <ctl name="RX_CDC_DMA_RX_0_DL_HL Switch" value="1" />
     </path>
 
+    <path name="play-fm speaker-and-headphones">
+        <path name="play-fm headphones" />
+    </path>
+
     <path name="incall-rec-uplink">
         <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="1" />
     </path>

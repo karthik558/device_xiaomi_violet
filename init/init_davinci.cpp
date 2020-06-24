@@ -91,19 +91,19 @@ void vendor_load_properties() {
     if (region == "GLOBAL") {
         model = "Mi 9T";
         device = "davinci";
-        fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.5.0.QFJMIXM:user/release-keys";
-        description = "davinci-user 10 QKQ1.190825.002 V11.0.5.0.QFJMIXM release-keys";
+        fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.3.0.QFJMIXM:user/release-keys";
+        description = "davinci-user 10 QKQ1.190825.002 V12.0.3.0.QFJMIXM release-keys";
         mod_device = "davinci_global";
     } else if (region == "CN") {
         model = "Redmi K20";
         device = "davinci";
-        fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys";
-        description = "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJCNXM release-keys";
+        fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.3.0.QFJCNXM:user/release-keys";
+        description = "davinci-user 10 QKQ1.190825.002 V12.0.3.0.QFJCNXM release-keys";
     } else if (region == "INDIA") {
         model = "Redmi K20";
         device = "davinciin";
-        fingerprint = "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.3.0.QFJINXM:user/release-keys";
-        description = "davinciin-user 10 QKQ1.190825.002 V11.0.3.0.QFJINXM release-keys";
+        fingerprint = "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V12.0.3.0.QFJINXM:user/release-keys";
+        description = "davinciin-user 10 QKQ1.190825.002 V12.0.3.0.QFJINXM release-keys";
         mod_device = "davinciin_in_global";
     }
 
