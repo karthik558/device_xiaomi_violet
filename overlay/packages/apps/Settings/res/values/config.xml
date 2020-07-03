@@ -12,9 +12,6 @@
      limitations under the License.
 -->
 <resources>
-
-    <!-- Device specific doze package -->
-    <string name="config_customDozePackage">org.lineageos.settings/org.lineageos.settings.doze.DozeSettingsActivity</string>
    
   <!-- For Ultra Power Saving -->
      <bool name="config_supportUltraPowerSaving">true</bool>
@@ -29,4 +26,8 @@
 
   <!-- Whether to show a preference item for mobile plan -->
   <bool name="config_show_mobile_plan">false</bool>
+
+    <!-- Device specific doze package -->
+    <string name="config_customDozePackage">org.lineageos.settings.doze/org.lineageos.settings.doze.DozeSettingsActivity</string>
+
 </resources>
