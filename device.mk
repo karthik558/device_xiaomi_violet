@@ -456,6 +456,10 @@ PRODUCT_PACKAGES += \
     init.violetparts.sh \
     init.violetparts.rc
 
+# Xiaomi Doze
+PRODUCT_PACKAGES += \
+    XiaomiDoze
+
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
