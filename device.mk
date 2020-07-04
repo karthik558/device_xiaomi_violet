@@ -164,7 +164,8 @@ PRODUCT_PACKAGES += \
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
-    XiaomiParts
+    XiaomiParts \
+    VioletParts
 
 # Display/Graphics
 PRODUCT_PACKAGES += \
@@ -414,6 +415,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
+
+#VioletParts init
+PRODUCT_PACKAGES += \
+    init.violetparts.sh \
+    init.violetparts.rc
 
 # Wifi
 PRODUCT_PACKAGES += \
