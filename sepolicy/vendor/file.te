@@ -1,0 +1,3 @@
+# VioletParts
+type sysfs_fcharge, sysfs_type, fs_type;
+type sysfs_fastcharge, sysfs_type, fs_type;
