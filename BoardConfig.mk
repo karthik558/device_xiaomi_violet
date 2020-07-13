@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-BOARD_VENDOR := xiaomi
-
 DEVICE_PATH := device/xiaomi/davinci
 
 BUILD_BROKEN_DUP_RULES := true
