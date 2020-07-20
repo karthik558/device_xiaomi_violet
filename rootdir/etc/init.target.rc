@@ -144,6 +144,11 @@ on property:sys.boot_completed=1
     write /dev/stune/top-app/schedtune.boost 10
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
+    # Configure dynamic stune boost
+    write /sys/module/cpu_boost/parameters/dynamic_stune_boost 15
+    write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1500
+    write /dev/stune/top-app/schedtune.sched_boost 15
+
     # Set allocstall_threshold to 0
     # Set swappiness to 100
     write /sys/module/vmpressure/parameters/allocstall_threshold 0
