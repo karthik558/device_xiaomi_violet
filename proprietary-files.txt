@@ -547,15 +547,6 @@ vendor/lib64/vendor.qti.gnss@3.0-service.so
 vendor/lib64/vendor.qti.gnss@3.0.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
-# GPS configs
-vendor/etc/apdr.conf
-vendor/etc/flp.conf
-vendor/etc/gps.conf
-vendor/etc/izat.conf
-vendor/etc/lowi.conf
-vendor/etc/sap.conf
-vendor/etc/xtwifi.conf
-
 # IMS
 lib64/libdiag_system.so
 -product/app/uceShimService/uceShimService.apk
