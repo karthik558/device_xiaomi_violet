@@ -50,34 +50,18 @@ vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
 # Audio libraries
-vendor/lib/liba2dpoffload.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libadm.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libarbitrarybytes.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudioconfigstore.so
-vendor/lib/libaudio_log_utils.so
-vendor/lib/libaudioparsers.so
-vendor/lib/libaudioroute_ext.so
-vendor/lib/libbatterylistener.so
-vendor/lib/libcomprcapture.so
-vendor/lib/libdrc.so
-vendor/lib/libexthwplugin.so
 vendor/lib/libgcs-calwrapper.so
 vendor/lib/libgcs-ipc.so
 vendor/lib/libgcs-osal.so
 vendor/lib/libgcs.so
-vendor/lib/libhdmiedid.so
-vendor/lib/libhdmipassthru.so
-vendor/lib/libhfp.so
 vendor/lib/libqtigef.so
-vendor/lib/libsndmonitor.so
-vendor/lib/libspkrprot.so
-vendor/lib/libsurround_3mic_proc.so
 vendor/lib/soundfx/libasphere.so
 
 # Audio ACDB
@@ -94,9 +78,6 @@ vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 
 # Audio firmware
 vendor/firmware/tfa98xx.cnt
-
-# Audio HAL
-vendor/lib/hw/audio.primary.sm6150.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
