@@ -56,7 +56,6 @@ vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
-vendor/lib/libaudioconfigstore.so
 vendor/lib/libqtigef.so
 vendor/lib/soundfx/libasphere.so
 
