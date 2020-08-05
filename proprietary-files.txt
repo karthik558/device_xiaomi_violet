@@ -55,7 +55,6 @@ vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libqtigef.so
-vendor/lib/soundfx/libasphere.so
 
 # Audio ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
