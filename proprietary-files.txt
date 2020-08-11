@@ -124,8 +124,6 @@ vendor/lib64/libFaceGrade.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libHalSuperSensorServer.so
 vendor/lib64/libhexagon_nn_stub.so
-vendor/lib64/libmegface.so
-vendor/lib64/libMegviiFacepp-0.5.2.so
 vendor/lib64/libmialgo_basic.so
 vendor/lib64/libmialgo_fs.so
 vendor/lib64/libmialgo_rfs.so
@@ -237,7 +235,6 @@ vendor/etc/camera/LDC_PACKDATA_VENDORID_0x07.bin
 vendor/etc/camera/LDC_table_src1.dat
 vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/lf_facerank_model.bin
-vendor/etc/camera/megviifacepp_0_5_2_model
 vendor/etc/camera/sdm_ys_32p_120_21_5_perturb50.bin
 
 # Camera sensors
