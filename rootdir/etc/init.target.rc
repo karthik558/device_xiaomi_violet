@@ -57,7 +57,7 @@ on property:ro.boot.product.hardware.sku=davinci
     enable nqnfc_1_2_hal_service
 
 on fs
-    mount_all /vendor/etc/fstab.qcom --early
+    mount_all --early
 
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
@@ -65,10 +65,9 @@ on fs
     mkdir /mnt/vendor/persist/camera 0777 root root
 
 on late-fs
-    mount_all /vendor/etc/fstab.qcom --late
-
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
+    mount_all --late
 
 on post-fs-data
     mkdir /data/vendor/nnhal 0700 system system
