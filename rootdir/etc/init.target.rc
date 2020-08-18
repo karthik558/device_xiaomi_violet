@@ -159,6 +159,10 @@ on property:sys.boot_completed=1
     write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1500
     write /dev/stune/top-app/schedtune.sched_boost 15
 
+    # Report max frequency to unity tasks
+    write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
+    write /proc/sys/kernel/sched_lib_mask_force 255
+
     # Set allocstall_threshold to 0
     # Set swappiness to 100
     write /sys/module/vmpressure/parameters/allocstall_threshold 0
