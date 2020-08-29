@@ -27,3 +27,9 @@ get_prop(system_app, vendor_default_prop)
 
 # USB Fastcharge
 allow system_app sysfs:file { getattr open read write };
+
+# BatteryInfo
+allow system_app sysfs_battery_supply:dir { search };
+allow system_app sysfs_battery_supply:file { read };
+allow system_app sysfs_battery_supply:file { open };
+allow system_app sysfs_battery_supply:file { getattr };
