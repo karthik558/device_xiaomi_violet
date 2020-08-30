@@ -23,7 +23,7 @@
 #include <fstream>
 
 #define PANEL_LED           "/sys/class/backlight/panel0-backlight/"
-#define NOTIFICATION_LED    "/sys/class/leds/green/"
+#define NOTIFICATION_LED    "/sys/class/leds/left/"
 
 #define BREATH              "breath"
 #define BRIGHTNESS          "brightness"
