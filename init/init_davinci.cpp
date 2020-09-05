@@ -80,7 +80,9 @@ void set_ro_product_prop(const std::string &prop, const std::string &value) {
 
 void vendor_load_properties() {
     std::string region;
+    std::string hardware_revision;
     region = GetProperty("ro.boot.hwc", "GLOBAL");
+    hardware_revision = GetProperty("ro.boot.hwversion", "UNKNOWN");
 
     std::string model;
     std::string device;
@@ -114,4 +116,6 @@ void vendor_load_properties() {
     if (mod_device != "") {
         property_override("ro.product.mod_device", mod_device.c_str());
     }
+
+    property_override("ro.boot.hardware.revision", hardware_revision.c_str());
 }
