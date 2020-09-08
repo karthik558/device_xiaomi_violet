@@ -10,4 +10,4 @@ init_daemon_domain(remosaic_daemon)
 
 vndbinder_use(remosaic_daemon)
 
-allow remosaic_daemon remosaic_daemon_service:service_manager add;
+add_service(remosaic_daemon, remosaic_daemon_service)
