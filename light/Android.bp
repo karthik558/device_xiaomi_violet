@@ -1,4 +1,5 @@
-// Copyright (C) 2019 The LineageOS Project
+//
+// Copyright (C) 2019-2020 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,13 +14,13 @@
 // limitations under the License.
 
 cc_binary {
-    relative_install_path: "hw",
-    defaults: ["hidl_defaults"],
     name: "android.hardware.light@2.0-service.davinci",
+    defaults: ["hidl_defaults"],
     init_rc: ["android.hardware.light@2.0-service.davinci.rc"],
+    relative_install_path: "hw",
     srcs: [
         "service.cpp",
-         "Light.cpp",
+        "Light.cpp",
     ],
     vendor: true,
     shared_libs: [
@@ -28,7 +29,6 @@ cc_binary {
         "libhardware",
         "libhidlbase",
         "libhidltransport",
-        "libhwbinder",
         "liblog",
         "libutils",
     ],
