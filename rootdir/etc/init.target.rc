@@ -135,6 +135,14 @@ on property:sys.boot_completed=1
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800"
     write /sys/module/cpu_boost/parameters/input_boost_ms 120
 
+    # Set allocstall_threshold to 0
+    # Set swappiness to 100
+    write /sys/module/vmpressure/parameters/allocstall_threshold 0
+    write /proc/sys/vm/swappiness 100
+
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.qcom
+
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
     user system
