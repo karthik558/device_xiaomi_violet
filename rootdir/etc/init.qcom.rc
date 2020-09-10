@@ -226,9 +226,6 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-service vendor.ssr_setup /vendor/bin/ssr_setup
-    oneshot
-
 on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
 
