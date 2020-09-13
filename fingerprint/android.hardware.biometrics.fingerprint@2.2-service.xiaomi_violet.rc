@@ -1,4 +1,4 @@
-service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_violet
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.2-service.xiaomi_violet
     class late_start
     user system
     group system input uhid
@@ -11,3 +11,4 @@ on post-fs-data
     mkdir /data/vendor/goodix 0770 system system
     mkdir /mnt/vendor/persist/fpc 0770 system system
     chown system system /data/vendor
+
