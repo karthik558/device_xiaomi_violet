@@ -51,5 +51,8 @@ telephony.lteOnCdmaDevice=1
 # Recovery
 ro.recovery.ui.margin_height=48
 
+# Set rendering pipeline mode to Vulkan
+debug.hwui.renderer=skiavk
+
 # WiFi
 wifi.interface=wlan0
