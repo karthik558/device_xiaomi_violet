@@ -157,6 +157,9 @@ audio.offload.video=true
 debug.stagefright.omx_default_rank=0
 vendor.media.target.version=2
 
+# Enable 4k on Youtube
+sys.display-size=3840x2160
+
 # Netmgr
 persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
