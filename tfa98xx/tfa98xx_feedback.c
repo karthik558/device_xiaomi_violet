@@ -16,21 +16,12 @@
  */
 
 #define LOG_TAG "audio_amplifier_tfa98xx"
-//#define LOG_NDEBUG 0
 
-#include <cutils/str_parms.h>
-#include <hardware/audio_amplifier.h>
-#include <hardware/hardware.h>
 #include <log/log.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <sys/types.h>
 
-/* clang-format off */
 #include "audio_hw.h"
 #include "platform.h"
 #include "platform_api.h"
-/* clang-format on */
 
 #define UNUSED __attribute__((unused))
 
@@ -43,22 +34,20 @@ typedef struct amp_device {
 
 static tfa_t* tfa_dev = NULL;
 
-static int is_speaker(uint32_t snd_device) {
-    int speaker = 0;
+static bool is_speaker(uint32_t snd_device) {
     switch (snd_device) {
         case SND_DEVICE_OUT_SPEAKER:
-        case SND_DEVICE_OUT_SPEAKER_REVERSE:
         case SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES:
-        case SND_DEVICE_OUT_VOICE_SPEAKER:
-        case SND_DEVICE_OUT_VOICE_SPEAKER_2:
+        case SND_DEVICE_OUT_SPEAKER_REVERSE:
+        case SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET:
         case SND_DEVICE_OUT_SPEAKER_AND_HDMI:
         case SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET:
-        case SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET:
-            speaker = 1;
-            break;
+        case SND_DEVICE_OUT_VOICE_SPEAKER:
+        case SND_DEVICE_OUT_VOICE_SPEAKER_2:
+            return true;
+        default:
+            return false;
     }
-
-    return speaker;
 }
 
 int tfa98xx_start_feedback(void* adev, uint32_t snd_device) {
