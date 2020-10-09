@@ -6,7 +6,6 @@ type vendor_fp_prop, property_type;
 allow hal_fingerprint_default fingerprint_device:chr_file rw_file_perms;
 allow hal_fingerprint_default fingerprint_data_file:dir create_dir_perms;
 allow hal_fingerprint_default fingerprint_data_file:file create_file_perms;
-allow hal_fingerprint_default input_device:dir r_dir_perms;
 allow hal_fingerprint_default input_device:chr_file rw_file_perms;
 allow hal_fingerprint_default qdsp_device:chr_file r_file_perms;
 allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
