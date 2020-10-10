@@ -27,19 +27,13 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <fstream>
-#include <unistd.h>
 #include <vector>
 
 #include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-#include "property_service.h"
-#include "vendor_init.h"
-
 using android::base::GetProperty;
-using android::init::property_set;
 
 std::vector<std::string> ro_props_default_source_order = {
     "",
