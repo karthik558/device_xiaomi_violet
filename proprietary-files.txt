@@ -274,7 +274,6 @@ vendor/firmware/CAMERA_ICP.elf
 vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
 vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
 vendor/lib64/mi.motor.daemon.so
-vendor/lib64/vendor.xiaomi.hardware.motor@1.0.so
 
 # Camera (popup sound effects)
 media/audio/ui/popup_cangmen_down.ogg
