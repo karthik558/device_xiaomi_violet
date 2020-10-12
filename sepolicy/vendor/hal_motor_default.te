@@ -18,8 +18,8 @@ allow hal_motor_client hal_motor_hwservice_xiaomi:hwservice_manager find;
 allow hal_motor_default hall_device:chr_file rw_file_perms;
 allow hal_motor_default motor_device:chr_file rw_file_perms;
 
-allow hal_motor_default persist_sensors_file:dir rw_dir_perms;
-allow hal_motor_default persist_sensors_file:file rw_file_perms;
+allow hal_motor_default vendor_persist_sensors_file:dir rw_dir_perms;
+allow hal_motor_default vendor_persist_sensors_file:file rw_file_perms;
 
 allow hal_motor_default mnt_vendor_file:dir { search };
 
