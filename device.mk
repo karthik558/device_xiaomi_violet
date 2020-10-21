@@ -141,6 +141,9 @@ PRODUCT_PACKAGES += \
     hwcomposer.sm6150 \
     memtrack.sm6150
 
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.display.mapper@2.0.vendor
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
@@ -227,6 +230,7 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
+    libavservices_minijail.vendor \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -304,9 +308,8 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/product_privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
-    $(LOCAL_PATH)/configs/permissions/system_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/system_privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/permissions/system_ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -425,11 +428,10 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
+    libavservices_minijail_32 \
     libdisplayconfig.qti \
-    libdisplayconfig.qti.vendor \
     libnl \
-    libqdMetaData \
-    libqdMetaData.system
+    libqdMetaData
 
 PRODUCT_BOOT_JARS += \
     WfdCommon

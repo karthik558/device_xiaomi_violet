@@ -2,6 +2,7 @@
 vendor/bin/adsprpcd
 vendor/bin/cdsprpcd
 vendor/etc/init/vendor.qti.adsprpc-sscrpc-service.rc
+vendor/etc/init/vendor.qti.cdsprpc-service.rc
 vendor/lib64/libadsp_default_listener.so
 vendor/lib64/libadsprpc.so
 vendor/lib64/libcdsp_default_listener.so
@@ -16,9 +17,11 @@ vendor/lib/libcdsp_default_listener.so
 vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so
 vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDAD_Encoder.so
 vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so
+vendor/lib/rfsa/adsp/dirac_resource.dar
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libarcsoft_dualcam_refocus_skel.so
 vendor/lib/rfsa/adsp/libcamera_nn_skel.so
+vendor/lib/rfsa/adsp/libdirac-capiv2.so
 vendor/lib/rfsa/adsp/libdsp_streamer_add_constant.so
 vendor/lib/rfsa/adsp/libdsp_streamer_binning.so
 vendor/lib/rfsa/adsp/libdsp_streamer_skel.so
@@ -40,11 +43,7 @@ vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
 # ANT+
--lib/libantradio.so
--lib64/libantradio.so
-product/lib64/com.qualcomm.qti.ant@1.0.so
-vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
-vendor/lib64/com.qualcomm.qti.ant@1.0.so
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio libraries
 vendor/lib/libacdb-fts.so
@@ -74,15 +73,17 @@ vendor/firmware/tfa98xx.cnt
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so
 vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 vendor/lib64/vendor.qti.hardware.btconfigstore@1.0.so
+vendor/lib64/vendor.qti.hardware.btconfigstore@2.0.so
 vendor/lib/btaudio_offload_if.so
 vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
 vendor/lib/libbluetooth_audio_session_qti.so
-vendor/lib/libbthost_if.so
 vendor/lib/vendor.qti.hardware.bluetooth_audio@2.0.so
 
 # Camera
@@ -120,14 +121,11 @@ vendor/lib64/lib_denoiser3.so
 vendor/lib64/libFaceGrade.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libHalSuperSensorServer.so
-vendor/lib64/libmialgo_basic.so
 vendor/lib64/libmialgo_fs.so
 vendor/lib64/libmialgo_rfs.so
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
 vendor/lib64/libmibokeh_712.so
-vendor/lib64/libmmcamera_faceproc2.so
-vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libremosaiclib.so
 vendor/lib64/libremosaic_daemon.so
@@ -139,7 +137,6 @@ vendor/lib64/libVDClearShot.so
 vendor/lib64/libVDSuperPhotoAPI.so
 vendor/lib64/libvidhance.so
 vendor/lib64/libXMFD_AgeGender.so
-vendor/lib64/mibokeh_712_opencl.bin
 vendor/lib64/libc++_shared.so
 
 # Camera components
@@ -226,6 +223,8 @@ vendor/etc/camera/LDC_PACKDATA_VENDORID_0x07.bin
 vendor/etc/camera/LDC_table_src1.dat
 vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/lf_facerank_model.bin
+vendor/etc/camera/mibokeh_712_opencl.bin
+vendor/etc/camera/mibokeh_712_parameter.bin
 vendor/etc/camera/sdm_ys_32p_120_21_5_perturb50.bin
 
 # Camera sensors
@@ -299,6 +298,8 @@ vendor/lib64/libwms.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
+vendor/lib64/vendor.qti.data.factory@2.1.so
+vendor/lib64/vendor.qti.data.slm@1.0.so
 vendor/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so
 vendor/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so
 vendor/lib64/vendor.qti.hardware.data.cne.internal.server@1.0.so
@@ -306,12 +307,11 @@ vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
 vendor/lib64/vendor.qti.hardware.data.iwlan@1.0.so
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so
+vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so
+vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
 # CNE configs
-etc/cne/Nexus/ATT/ATT_profiles.xml
-etc/cne/Nexus/ROW/ROW_profiles.xml
-etc/cne/Nexus/VZW/VZW_profiles.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile3.xml
@@ -342,7 +342,6 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
 
 # Configstore
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
-vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 -vendor/lib64/libplatformconfig.so
@@ -350,17 +349,17 @@ vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 -vendor/lib/libplatformconfig.so
 vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
 
-# Display - from def_reteu-user-10-QPFS30.103-21-1-2-c993f-release-keys
-vendor/lib64/libdisplayqos.so|86abe8922c686f205520b6980f337dda79182bec
-vendor/lib64/libhdr_tm.so|103b2f0893a767f162ffc2945b5edea062fb0354
-vendor/lib64/libqseed3.so|4a4fbff019467a4531816ab58e259b22d95630fa
-vendor/lib64/libsdedrm.so|dbdcb66859015168a7dbc6c62d1f04b64a157e41
-vendor/lib64/libsdm-color.so|e5c120cb6acbecf5a2c344029b103d6b61fc3925
-vendor/lib64/libsdm-colormgr-algo.so|2dc1679faf4a2fab6ae0e6b0ab89c3547f83ac7d
-vendor/lib64/libsdm-diag.so|d7a96d76dd2fb7516a9ed89c39a3f0992ec3266e
-vendor/lib64/libsdm-disp-vndapis.so|aa658050b07c04b114cb43e6535fe45883943152
-vendor/lib64/libsdmextension.so|72991016a61b3d56ef91265ac76134b55636c392
-vendor/lib64/libtinyxml2_1.so|ba981e332895a053a67fc54a8190365a3ad37f2d
+# Display
+vendor/lib64/libdisplayqos.so
+vendor/lib64/libhdr_tm.so
+vendor/lib64/libqseed3.so
+vendor/lib64/libsdedrm.so
+vendor/lib64/libsdm-color.so
+vendor/lib64/libsdm-colormgr-algo.so
+vendor/lib64/libsdm-diag.so
+vendor/lib64/libsdm-disp-vndapis.so
+vendor/lib64/libsdmextension.so
+vendor/lib64/libtinyxml2_1.so
 
 # Display calibration
 vendor/etc/qdcm_calib_data_ss_ea_fhd_cmd_dsi_panel.xml
@@ -368,19 +367,19 @@ vendor/etc/qdcm_calib_data_ss_eb_fhd_cmd_dsi_panel.xml
 
 # DPM
 framework/tcmclient.jar
-product/bin/dpmd
-product/etc/dpm/dpm.conf
-product/etc/init/dpmd.rc
-product/etc/permissions/com.qti.dpmframework.xml
-product/etc/permissions/dpmapi.xml
-product/framework/com.qti.dpmframework.jar
-product/framework/dpmapi.jar
-product/lib64/com.qualcomm.qti.dpm.api@1.0.so
-product/lib64/libdpmctmgr.so
-product/lib64/libdpmfdmgr.so
-product/lib64/libdpmframework.so
-product/lib64/libdpmtcm.so
--product/priv-app/dpmserviceapp/dpmserviceapp.apk
+system_ext/bin/dpmd
+system_ext/etc/dpm/dpm.conf
+system_ext/etc/init/dpmd.rc
+system_ext/etc/permissions/com.qti.dpmframework.xml
+system_ext/etc/permissions/dpmapi.xml
+system_ext/framework/com.qti.dpmframework.jar
+system_ext/framework/dpmapi.jar
+system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so
+system_ext/lib64/libdpmctmgr.so
+system_ext/lib64/libdpmfdmgr.so
+system_ext/lib64/libdpmframework.so
+system_ext/lib64/libdpmtcm.so
+-system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/bin/dpmQmiMgr
 vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
@@ -396,30 +395,38 @@ vendor/lib64/libdrmtime.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libhdcpsrm.so
-vendor/lib64/liboemcrypto.so
+#vendor/lib64/liboemcrypto.so
 vendor/lib64/libqisl.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
 
-# DRM widevine - from Mi 9T Pro QKQ1.190825.002 V11.0.8.0.QFKCNXM
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|1aed116c6cd73ee0c89a5eec050afab5c64b9f87
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|3522890cda1defadaaa79259f0fd28490f533c79
-vendor/lib64/libwvhidl.so|6418b2ace2f3c9758ac54edb85a4dea43accfa9a
-vendor/lib64/mediadrm/libwvdrmengine.so|4f78d73cfddc0b5bc9a5dcbb20470beaad0d3047
+# DRM widevine
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
+-vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
+vendor/lib64/libwvhidl.so
+vendor/lib64/mediadrm/libwvdrmengine.so
+
+# DSP
+vendor/bin/dspservice
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
+vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
+-vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
 vendor/lib64/hw/fingerprint.goodix_fod.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
-vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0_vendor.so
+vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
 
 # FM
-lib64/fm_helium.so
-lib64/libfm-hci.so
--product/lib64/vendor.qti.hardware.fm@1.0.so
+system_ext/lib64/fm_helium.so
+system_ext/lib64/libfm-hci.so
+-system_ext/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
@@ -430,8 +437,7 @@ vendor/lib64/egl/libGLESv1_CM_adreno.so
 vendor/lib64/egl/libGLESv2_adreno.so
 vendor/lib64/egl/libq3dtools_adreno.so
 vendor/lib64/egl/libq3dtools_esx.so
-vendor/lib64/egl/libQTapGLES.so
-vendor/lib64/hw/vulkan.sm6150.so
+vendor/lib64/hw/vulkan.adreno.so
 vendor/lib64/libadreno_utils.so
 vendor/lib64/libC2D2.so
 vendor/lib64/libc2d30_bltlib.so
@@ -446,8 +452,7 @@ vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/egl/libq3dtools_esx.so
-vendor/lib/egl/libQTapGLES.so
-vendor/lib/hw/vulkan.sm6150.so
+vendor/lib/hw/vulkan.adreno.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libC2D2.so
 vendor/lib/libc2d30_bltlib.so
@@ -463,7 +468,7 @@ vendor/firmware/a615_zap.b01
 vendor/firmware/a615_zap.b02
 vendor/firmware/a615_zap.elf
 vendor/firmware/a615_zap.mdt
-vendor/firmware/a630_gmu.bin
+vendor/firmware/a618_gmu.bin
 vendor/firmware/a630_sqe.fw
 
 # Gatekeeper
@@ -479,10 +484,11 @@ vendor/bin/xtra-daemon
 vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
 vendor/etc/cacert_location.pem
--vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
+-vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
 vendor/etc/xtra_root_cert.pem
-vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
+vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so
 vendor/lib64/libcacertclient.so
+vendor/lib64/libcdfw.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libgdtap.so
 vendor/lib64/libizat_client_api.so
@@ -494,29 +500,30 @@ vendor/lib64/liblocationservice.so
 vendor/lib64/libloc_socket.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libqdma_file_agent.so
+vendor/lib64/libqcc_file_agent.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/vendor.qti.gnss@1.0.so
 vendor/lib64/vendor.qti.gnss@1.1.so
 vendor/lib64/vendor.qti.gnss@1.2.so
 vendor/lib64/vendor.qti.gnss@2.0.so
 vendor/lib64/vendor.qti.gnss@2.1.so
-vendor/lib64/vendor.qti.gnss@3.0-service.so
 vendor/lib64/vendor.qti.gnss@3.0.so
+vendor/lib64/vendor.qti.gnss@4.0-service.so
+vendor/lib64/vendor.qti.gnss@4.0.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 
 # IMS
-lib64/libdiag_system.so
--product/app/uceShimService/uceShimService.apk
-product/lib64/libimscamera_jni.so
-product/lib64/libimsmedia_jni.so
-product/lib64/lib-imsvideocodec.so
-product/lib64/lib-imsvt.so
-product/lib64/lib-imsvtextutils.so
-product/lib64/lib-imsvtutils.so
-product/lib64/vendor.qti.imsrtpservice@2.0.so
-product/lib64/vendor.qti.imsrtpservice@2.1.so
--product/priv-app/ims/ims.apk
+system_ext/lib64/libdiag_system.so
+system_ext/lib64/libimscamera_jni.so
+system_ext/lib64/libimsmedia_jni.so
+system_ext/lib64/lib-imsvideocodec.so
+system_ext/lib64/lib-imsvt.so
+system_ext/lib64/lib-imsvtextutils.so
+system_ext/lib64/lib-imsvtutils.so
+system_ext/lib64/vendor.qti.diaghal@1.0.so
+system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
+-system_ext/priv-app/ims/ims.apk
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
 vendor/bin/imsrcsd
@@ -525,11 +532,13 @@ vendor/etc/init/imsdatadaemon.rc
 vendor/etc/init/imsqmidaemon.rc
 vendor/etc/init/imsrcsd.rc
 vendor/etc/init/ims_rtp_daemon.rc
+vendor/etc/seccomp_policy/imsrtp.policy
 vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so
 vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so
 vendor/lib64/com.qualcomm.qti.imscmservice@2.2.so
 vendor/lib64/com.qualcomm.qti.uceservice@2.0.so
 vendor/lib64/com.qualcomm.qti.uceservice@2.1.so
+vendor/lib64/com.qualcomm.qti.uceservice@2.2.so
 vendor/lib64/lib-imscmservice.so
 vendor/lib64/lib-imsdpl.so
 vendor/lib64/lib-imsqimf.so
@@ -538,6 +547,7 @@ vendor/lib64/lib-imsrcs-v2.so
 vendor/lib64/lib-imsvtcore.so
 vendor/lib64/lib-imsxml.so
 vendor/lib64/librcc.so
+vendor/lib64/lib-rcsconfig.so
 vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
 vendor/lib64/lib-rtpsl.so
@@ -550,11 +560,13 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.3.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.5.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.6.so
+vendor/lib64/vendor.qti.ims.callcapability@1.0.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
+vendor/lib64/vendor.qti.ims.factory@1.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
-vendor/lib64/vendor.qti.imsrtpservice@2.0.so
-vendor/lib64/vendor.qti.imsrtpservice@2.1-service-Impl.so
-vendor/lib64/vendor.qti.imsrtpservice@2.1.so
+vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
+vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
+vendor/lib64/vendor.qti.imsrtpservice@3.0.so
 
 # IPA
 vendor/etc/init/ipa_fws.rc
@@ -569,9 +581,11 @@ vendor/firmware/ipa_fws.mdt
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
+vendor/bin/hw/android.hardware.keymaster@4.1-service-qti
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterutils.so
+vendor/lib64/libqcbor.so
 vendor/lib64/libqtikeymaster4.so
 
 # Listen
@@ -579,13 +593,20 @@ vendor/lib/hw/sound_trigger.primary.sm6150.so
 vendor/lib/librice.so
 
 # Media
+vendor/bin/hw/vendor.qti.media.c2@1.0-service
 vendor/bin/vppservice
+vendor/etc/configstore/vpp.configstore.xml
+vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/etc/init/vppservice.rc
+vendor/etc/seccomp_policy/codec2.vendor.base.policy
+vendor/etc/seccomp_policy/codec2.vendor.ext.policy
+vendor/lib64/libmmosal.so
 vendor/lib64/libvpphvx.so
 vendor/lib64/libvpplibrary.so
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so
 vendor/lib64/vendor.qti.hardware.vpp@1.3.so
+vendor/lib/libmmosal.so
 vendor/lib/libMpeg4SwEncoder.so
 vendor/lib/libdsd2pcm.so
 vendor/lib/libOmxAacDec.so
@@ -597,12 +618,12 @@ vendor/lib/libOmxApeDec.so
 vendor/lib/libOmxApeDecSw.so
 vendor/lib/libOmxDsdDec.so
 vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxMux_proprietary.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxSwVdec.so
 vendor/lib/libOmxSwVencMpeg4.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libOmxWmaDec.so
+vendor/lib/libqcodec2.so
 vendor/lib/libswvdec.so
 vendor/lib/libvppclient.so
 vendor/lib/libvpphvx.so
@@ -615,29 +636,32 @@ vendor/lib/vendor.qti.hardware.vpp@1.3.so
 vendor/lib/libsn100u_fw.so
 
 # Perf
-vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
+vendor/bin/hw/vendor.qti.hardware.perf@2.2-service
 vendor/bin/msm_irqbalance
-vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc
+vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc
 vendor/etc/msm_irqbalance.conf
 vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/perfboostsconfig.xml
 vendor/etc/perf/perfconfigstore.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
-vendor/etc/perf/thermalboost.conf
 vendor/etc/powerhint.xml
 vendor/lib64/libperfconfig.so
 vendor/lib64/libperfgluelayer.so
+vendor/lib64/libperfioctl.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf@2.0.so
+vendor/lib64/vendor.qti.hardware.perf@2.1.so
+vendor/lib64/vendor.qti.hardware.perf@2.2.so
 vendor/lib/libperfconfig.so
 vendor/lib/libperfgluelayer.so
+vendor/lib/libperfioctl.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-perfd.so
 vendor/lib/libqti-util.so
-vendor/lib/vendor.qti.hardware.perf@2.0.so
+vendor/lib/vendor.qti.hardware.perf@2.2.so
 
 # Peripheral Manager
 vendor/bin/pm-proxy
@@ -645,7 +669,7 @@ vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
 
 # QMI
-etc/permissions/qti_permissions.xml
+system_ext/etc/permissions/qti_permissions.xml
 vendor/bin/irsc_util
 vendor/bin/pd-mapper
 vendor/bin/qrtr-ns
@@ -678,13 +702,12 @@ vendor/lib/libqmiservices.so
 vendor/lib/libqmi.so
 
 # RIL
--product/app/QtiTelephonyService/QtiTelephonyService.apk
-product/etc/permissions/qcrilhook.xml
-product/etc/permissions/telephonyservice.xml
-product/framework/qcrilhook.jar
-product/framework/qti-telephony-common.jar|09e5451cccd72204c6d6a79b1df7c620d5b18fcd
-product/framework/QtiTelephonyServicelibrary.jar
--product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
+system_ext/etc/permissions/qcrilhook.xml
+system_ext/etc/permissions/telephonyservice.xml
+system_ext/framework/qcrilhook.jar
+system_ext/framework/qti-telephony-common.jar
+-system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/adpl
 vendor/bin/hw/qcrild
 vendor/bin/netmgrd
@@ -697,6 +720,8 @@ vendor/etc/init/dataadpl.rc
 vendor/etc/init/dataqti.rc
 vendor/etc/init/netmgrd.rc
 vendor/etc/init/qcrild.rc
+vendor/etc/init/vendor.qti.rmt_storage.rc
+vendor/etc/init/vendor.qti.tftp.rc
 vendor/lib64/libconfigdb.so
 vendor/lib64/libdsi_netctrl.so
 vendor/lib64/liblqe.so
@@ -712,6 +737,7 @@ vendor/lib64/libqcrilFramework.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
 vendor/lib64/libril-qc-hal-qmi.so
+vendor/lib64/libril-qc-logger.so
 vendor/lib64/librilqmiservices.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/qcrild_librilutils.so
@@ -720,6 +746,7 @@ vendor/lib64/qtimutex.so
 vendor/lib64/vendor.qti.hardware.data.connection@1.0.so
 vendor/lib64/vendor.qti.hardware.data.connection@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
+vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.lpa@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
@@ -727,11 +754,13 @@ vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.2.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.3.so
+vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.4.so
 vendor/lib64/vendor.qti.hardware.radio.uim@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.uim@1.2.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so
+vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/radio/qcril_database/qcril.db
 vendor/radio/qcril_database/upgrade/0_initial.sql
@@ -740,9 +769,13 @@ vendor/radio/qcril_database/upgrade/2_version_add_wps_config.sql
 vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
 vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
+vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
+vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
 
 # Sensors
 vendor/bin/sensors.qti
+vendor/etc/init/init.vendor.sensors.rc
+vendor/etc/init/vendor.sensors.qti.rc
 vendor/etc/sensors/hals.conf
 vendor/lib64/libsensorslog.so
 vendor/lib64/libsnsapi.so
@@ -793,16 +826,16 @@ vendor/etc/sensors/config/tcs3701.json
 vendor/etc/sensors/sns_reg_config
 
 # Soter
--vendor/app/SoterService/SoterService.apk
+-app/SoterService/SoterService.apk
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Thermal
-init.mi_thermald.rc:vendor/etc/init/init.mi_thermald.rc
 vendor/bin/mi_thermald
 vendor/bin/thermal-engine
+vendor/etc/init/init.mi_thermald.rc
 vendor/etc/thermal-arvr.conf
 vendor/etc/thermal-camera.conf
 vendor/etc/thermal-chg-only.conf
@@ -831,71 +864,69 @@ vendor/firmware/goodix_gt9886_limit_f10_first.tporder
 vendor/firmware/goodix_gt9886_limit_f10_second.tporder
 
 # WiFi Display
-bin/wfdservice
-etc/init/wfdservice.rc
-etc/wfdconfigsink.xml
 -framework/WfdCommon.jar
-lib/com.qualcomm.qti.wifidisplayhal@1.0.so
-lib/libFileMux.so
-lib/libmmosal.so
-lib/libmmparser_lite.so
-lib/libmmrtpdecoder.so
-lib/libmmrtpencoder.so
-lib/libwfdaac.so
-lib/libwfdavenhancements.so
-lib/libwfdclient.so
-lib/libwfdcommonutils.so
-lib/libwfdconfigutils.so
-lib/libwfdmminterface.so
-lib/libwfdmmsink.so
-lib/libwfdmmsrc_system.so
-lib/libwfdrtsp.so
-lib/libwfdservice.so
-lib/libwfdsinksm.so
-lib/libwfdsm.so
-lib/libwfduibcinterface.so
-lib/libwfduibcsink.so
-lib/libwfduibcsinkinterface.so
-lib/libwfduibcsrc.so
-lib/libwfduibcsrcinterface.so
-lib64/libFileMux.so
-lib64/libmmosal.so
-lib64/libmmparser_lite.so
-lib64/libmmrtpdecoder.so
-lib64/libmmrtpencoder.so
-lib64/libwfdclient.so
-lib64/libwfdcommonutils.so
-lib64/libwfdconfigutils.so
-lib64/libwfdmminterface.so
-lib64/libwfdmmsink.so
-lib64/libwfdnative.so
-lib64/libwfdrtsp.so
-lib64/libwfdsinksm.so
-lib64/libwfdsm.so
-lib64/libwfduibcinterface.so
-lib64/libwfduibcsink.so
-lib64/libwfduibcsinkinterface.so
-lib64/libwfduibcsrc.so
-lib64/libwfduibcsrcinterface.so
--priv-app/WfdService/WfdService.apk
-product/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
-product/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
+system_ext/bin/wfdservice
+system_ext/etc/init/wfdservice.rc
+system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml
+system_ext/etc/seccomp_policy/wfdservice.policy
+system_ext/etc/wfdconfigsink.xml
+system_ext/lib/libmmosal.so
+system_ext/lib/libmmparser_lite.so
+system_ext/lib/libmmrtpdecoder.so
+system_ext/lib/libmmrtpencoder.so
+system_ext/lib/libwfdavenhancements.so
+system_ext/lib/libwfdcommonutils.so
+system_ext/lib/libwfdconfigutils.so
+system_ext/lib/libwfddisplayconfig.so
+system_ext/lib/libwfdmminterface.so
+system_ext/lib/libwfdmmsink.so
+system_ext/lib/libwfdmmsrc_system.so
+system_ext/lib/libwfdrtsp.so
+system_ext/lib/libwfdservice.so
+system_ext/lib/libwfdsinksm.so
+system_ext/lib/libwfduibcinterface.so
+system_ext/lib/libwfduibcsinkinterface.so
+system_ext/lib/libwfduibcsink.so
+system_ext/lib/libwfduibcsrcinterface.so
+system_ext/lib/libwfduibcsrc.so
+system_ext/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
+system_ext/lib64/libmmosal.so
+system_ext/lib64/libmmparser_lite.so
+system_ext/lib64/libmmrtpdecoder.so
+system_ext/lib64/libmmrtpencoder.so
+system_ext/lib64/libwfdclient.so
+system_ext/lib64/libwfdcommonutils.so
+system_ext/lib64/libwfdconfigutils.so
+system_ext/lib64/libwfddisplayconfig.so
+system_ext/lib64/libwfdmminterface.so
+system_ext/lib64/libwfdmmsink.so
+system_ext/lib64/libwfdnative.so
+system_ext/lib64/libwfdrtsp.so
+system_ext/lib64/libwfdsinksm.so
+system_ext/lib64/libwfduibcinterface.so
+system_ext/lib64/libwfduibcsinkinterface.so
+system_ext/lib64/libwfduibcsink.so
+system_ext/lib64/libwfduibcsrcinterface.so
+system_ext/lib64/libwfduibcsrc.so
+-system_ext/priv-app/WfdService/WfdService.apk
 vendor/bin/wfdhdcphalservice
 vendor/bin/wfdvndservice
 vendor/bin/wifidisplayhalservice
 vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
 vendor/etc/init/wfdvndservice.rc
+vendor/etc/seccomp_policy/wfdhdcphalservice.policy
+vendor/etc/seccomp_policy/wfdvndservice.policy
+vendor/etc/seccomp_policy/wifidisplayhalservice.policy
 vendor/etc/wfdconfig.xml
 vendor/lib/libFileMux_proprietary.so
-vendor/lib/libmmosal_proprietary.so
-vendor/lib/libmmparser_lite_proprietary.so
 vendor/lib/libmmrtpdecoder_proprietary.so
 vendor/lib/libmmrtpencoder_proprietary.so
 vendor/lib/libwfdaac_vendor.so
 vendor/lib/libwfdcodecv4l2_proprietary.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdconfigutils_proprietary.so
+vendor/lib/libwfddisplayconfig_proprietary.so
 vendor/lib/libwfdhdcpcp.so
 vendor/lib/libwfdhdcpservice_proprietary.so
 vendor/lib/libwfdmminterface_proprietary.so
@@ -904,7 +935,6 @@ vendor/lib/libwfdmmsrc_proprietary.so
 vendor/lib/libwfdmodulehdcpsession.so
 vendor/lib/libwfdrtsp_proprietary.so
 vendor/lib/libwfdsessionmodule.so
-vendor/lib/libwfdsm_proprietary.so
 vendor/lib/libwfdsourcesession_proprietary.so
 vendor/lib/libwfdsourcesm_proprietary.so
 vendor/lib/libwfduibcinterface_proprietary.so
@@ -912,6 +942,7 @@ vendor/lib/libwfduibcsinkinterface_proprietary.so
 vendor/lib/libwfduibcsink_proprietary.so
 vendor/lib/libwfduibcsrcinterface_proprietary.so
 vendor/lib/libwfduibcsrc_proprietary.so
+vendor/lib/libwfdutils_proprietary.so
 vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
 vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 
