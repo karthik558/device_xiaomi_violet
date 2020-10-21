@@ -70,6 +70,8 @@ function configure_memory_parameters() {
     vmpres_file_min=$((minfree_5 + (minfree_5 - rem_minfree_4)))
     echo $vmpres_file_min > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 
+    echo "18432,23040,27648,64512,165888,225792" > /sys/module/lowmemorykiller/parameters/minfree
+
     # Enable adaptive LMK for all targets &
     # use Google default LMK series for all 64-bit targets >=2GB.
     echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
@@ -157,8 +159,6 @@ case "$target" in
 
     # Set Memory parameters
     configure_memory_parameters
-
-    echo "18432,23040,27648,32256,85296,120640" > /sys/module/lowmemorykiller/parameters/minfree
     ;;
 esac
 
