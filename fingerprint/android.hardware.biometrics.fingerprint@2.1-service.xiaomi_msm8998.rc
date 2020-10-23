@@ -1,0 +1,13 @@
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_msm8998
+    class late_start
+    user system
+    group system input uhid
+    writepid /dev/cpuset/system-background/tasks
+
+on post-fs-data
+    mkdir /data/vendor/fpc 0770 system system
+    chown system system /data/vendor/fpc/calibration_image.pndat
+    chmod 0600 /data/vendor/fpc/calibration_image.pndat
+    mkdir /data/vendor/goodix 0770 system system
+    mkdir /mnt/vendor/persist/fpc 0770 system system
+    chown system system /data/vendor
