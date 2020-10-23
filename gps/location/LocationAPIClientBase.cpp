@@ -1,4 +1,4 @@
-/* Copyright (c) 2017 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017, 2020 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -310,14 +310,16 @@ void LocationAPIClientBase::locAPISetCallbacks(LocationCallbacks& locationCallba
     pthread_mutex_unlock(&mMutex);
 }
 
-LocationAPIClientBase::~LocationAPIClientBase()
+void LocationAPIClientBase::destroy()
 {
+    LOC_LOGD("LocationAPIClientBase::destroy()");
+
     pthread_mutex_lock(&mMutex);
 
     mGeofenceBreachCallback = nullptr;
 
     if (mLocationAPI) {
-        mLocationAPI->destroy();
+        mLocationAPI->destroy([this]() {onLocationApiDestroyCompleteCb();});
         mLocationAPI = nullptr;
     }
 
@@ -326,8 +328,17 @@ LocationAPIClientBase::~LocationAPIClientBase()
     }
 
     pthread_mutex_unlock(&mMutex);
+}
 
+LocationAPIClientBase::~LocationAPIClientBase()
+{
     pthread_mutex_destroy(&mMutex);
+}
+
+void LocationAPIClientBase::onLocationApiDestroyCompleteCb()
+{
+    LOC_LOGD("LocationAPIClientBase::onLocationApiDestroyCompleteCb()");
+    delete this;
 }
 
 uint32_t LocationAPIClientBase::locAPIStartTracking(TrackingOptions& options)
@@ -799,7 +810,9 @@ void LocationAPIClientBase::locAPIResumeGeofences(
 void LocationAPIClientBase::locAPIRemoveAllGeofences()
 {
     std::vector<uint32_t> sessionsVec = mGeofenceBiDict.getAllSessions();
-    locAPIRemoveGeofences(sessionsVec.size(), &sessionsVec[0]);
+    if (sessionsVec.size() > 0) {
+        locAPIRemoveGeofences(sessionsVec.size(), &sessionsVec[0]);
+    }
 }
 
 void LocationAPIClientBase::locAPIGnssNiResponse(uint32_t id, GnssNiResponse response)

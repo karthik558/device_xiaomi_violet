@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2013, 2015-2017 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2013, 2015-2020 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -79,7 +79,9 @@ void loc_nmea_generate_pos(const UlpLocation &location,
                                const GpsLocationExtended &locationExtended,
                                const LocationSystemInfo &systemInfo,
                                unsigned char generate_nmea,
-                               std::vector<std::string> &nmeaArraystr);
+                               bool custom_gga_fix_quality,
+                               std::vector<std::string> &nmeaArraystr,
+                               int& indexOfGGA);
 
 #define DEBUG_NMEA_MINSIZE 6
 #define DEBUG_NMEA_MAXSIZE 4096

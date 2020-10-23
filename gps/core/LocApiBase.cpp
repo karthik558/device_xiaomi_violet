@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, 2016-2019 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2014, 2016-2020 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -330,7 +330,7 @@ void LocApiBase::reportPosition(UlpLocation& location,
              "timestamp: %" PRId64 "\n"
              "Session status: %d\n Technology mask: %u\n "
              "SV used in fix (gps/glo/bds/gal/qzss) : \
-             (0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 ")",
+             (0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 ")",
              location.gpsLocation.flags, location.position_source,
              location.gpsLocation.latitude, location.gpsLocation.longitude,
              location.gpsLocation.altitude, location.gpsLocation.speed,
@@ -340,12 +340,12 @@ void LocApiBase::reportPosition(UlpLocation& location,
              locationExtended.gnss_sv_used_ids.glo_sv_used_ids_mask,
              locationExtended.gnss_sv_used_ids.bds_sv_used_ids_mask,
              locationExtended.gnss_sv_used_ids.gal_sv_used_ids_mask,
-             locationExtended.gnss_sv_used_ids.qzss_sv_used_ids_mask);
+             locationExtended.gnss_sv_used_ids.qzss_sv_used_ids_mask,
+             locationExtended.gnss_sv_used_ids.navic_sv_used_ids_mask);
     // loop through adapters, and deliver to all adapters.
     TO_ALL_LOCADAPTERS(
         mLocAdapters[i]->reportPositionEvent(location, locationExtended,
                                              status, loc_technology_mask,
-                                             false,
                                              pDataNotify, msInWeek)
     );
 }
@@ -407,28 +407,27 @@ void LocApiBase::reportSv(GnssSvNotification& svNotify)
 
     // print the SV info before delivering
     LOC_LOGV("num sv: %u\n"
-        "      sv: constellation svid         cN0"
+        "      sv: constellation svid         cN0  basebandCN0"
         "    elevation    azimuth    flags",
         svNotify.count);
-    for (size_t i = 0; i < svNotify.count && i < LOC_GNSS_MAX_SVS; i++) {
+    for (size_t i = 0; i < svNotify.count && i < GNSS_SV_MAX; i++) {
         if (svNotify.gnssSvs[i].type >
             sizeof(constellationString) / sizeof(constellationString[0]) - 1) {
             svNotify.gnssSvs[i].type = GNSS_SV_TYPE_UNKNOWN;
         }
         // Display what we report to clients
-        uint16_t displaySvId = GNSS_SV_TYPE_QZSS == svNotify.gnssSvs[i].type ?
-                               svNotify.gnssSvs[i].svId + QZSS_SV_PRN_MIN - 1 :
-                               svNotify.gnssSvs[i].svId;
-        LOC_LOGV("   %03zu: %*s  %02d    %f    %f    %f    %f    0x%02X",
+        LOC_LOGV("   %03zu: %*s  %02d    %f    %f    %f    %f    %f    0x%02X 0x%2X",
             i,
             13,
             constellationString[svNotify.gnssSvs[i].type],
-            displaySvId,
+            svNotify.gnssSvs[i].svId,
             svNotify.gnssSvs[i].cN0Dbhz,
+            svNotify.gnssSvs[i].basebandCarrierToNoiseDbHz,
             svNotify.gnssSvs[i].elevation,
             svNotify.gnssSvs[i].azimuth,
             svNotify.gnssSvs[i].carrierFrequencyHz,
-            svNotify.gnssSvs[i].gnssSvOptionsMask);
+            svNotify.gnssSvs[i].gnssSvOptionsMask,
+            svNotify.gnssSvs[i].gnssSignalTypeMask);
     }
     // loop through adapters, and deliver to all adapters.
     TO_ALL_LOCADAPTERS(
@@ -542,9 +541,10 @@ void LocApiBase::reportGnssSvIdConfig(const GnssSvIdConfig& config)
 {
     // Print the config
     LOC_LOGv("gloBlacklistSvMask: %" PRIu64 ", bdsBlacklistSvMask: %" PRIu64 ",\n"
-             "qzssBlacklistSvMask: %" PRIu64 ", galBlacklistSvMask: %" PRIu64,
+             "qzssBlacklistSvMask: %" PRIu64 ", galBlacklistSvMask: %" PRIu64 ",\n"
+              "navicBlacklistSvMask: %" PRIu64,
              config.gloBlacklistSvMask, config.bdsBlacklistSvMask,
-             config.qzssBlacklistSvMask, config.galBlacklistSvMask);
+             config.qzssBlacklistSvMask, config.galBlacklistSvMask, config.navicBlacklistSvMask);
 
     // Loop through adapters, and deliver to all adapters.
     TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportGnssSvIdConfigEvent(config));
@@ -594,6 +594,11 @@ void LocApiBase::handleBatchStatusEvent(BatchingStatus batchStatus)
     TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportBatchStatusChangeEvent(batchStatus));
 }
 
+void LocApiBase::reportGnssConfig(uint32_t sessionId, const GnssConfig& gnssConfig)
+{
+    // loop through adapters, and deliver to the first handling adapter.
+    TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportGnssConfigEvent(sessionId, gnssConfig));
+}
 
 enum loc_api_adapter_err LocApiBase::
    open(LOC_API_ADAPTER_EVENT_MASK_T /*mask*/)
@@ -614,7 +619,8 @@ void LocApiBase::
 DEFAULT_IMPL()
 
 void LocApiBase::
-    injectPosition(double /*latitude*/, double /*longitude*/, float /*accuracy*/)
+    injectPosition(double /*latitude*/, double /*longitude*/, float /*accuracy*/,
+                   bool /*onDemandCpi*/)
 DEFAULT_IMPL()
 
 void LocApiBase::
@@ -664,7 +670,7 @@ enum loc_api_adapter_err LocApiBase::
 DEFAULT_IMPL(LOC_API_ADAPTER_ERR_SUCCESS)
 
 LocationError LocApiBase::
-    setLPPConfigSync(GnssConfigLppProfile /*profile*/)
+    setLPPConfigSync(GnssConfigLppProfileMask /*profileMask*/)
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 
 
@@ -709,9 +715,6 @@ DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 GnssConfigSuplVersion LocApiBase::convertSuplVersion(const uint32_t /*suplVersion*/)
 DEFAULT_IMPL(GNSS_CONFIG_SUPL_VERSION_1_0_0)
 
-GnssConfigLppProfile LocApiBase::convertLppProfile(const uint32_t /*lppProfile*/)
-DEFAULT_IMPL(GNSS_CONFIG_LPP_PROFILE_RRLP_ON_LTE)
-
 GnssConfigLppeControlPlaneMask LocApiBase::convertLppeCp(const uint32_t /*lppeControlPlaneMask*/)
 DEFAULT_IMPL(0)
 
@@ -720,6 +723,10 @@ DEFAULT_IMPL(0)
 
 LocationError LocApiBase::setEmergencyExtensionWindowSync(
         const uint32_t /*emergencyExtensionSeconds*/)
+DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
+
+LocationError LocApiBase::setMeasurementCorrections(
+        const GnssMeasurementCorrections /*gnssMeasurementCorrections*/)
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 
 void LocApiBase::
@@ -751,30 +758,34 @@ DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 LocationError LocApiBase::setBlacklistSvSync(const GnssSvIdConfig& /*config*/)
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 
-void LocApiBase::setBlacklistSv(const GnssSvIdConfig& /*config*/)
+void LocApiBase::setBlacklistSv(const GnssSvIdConfig& /*config*/,
+                                LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
 void LocApiBase::getBlacklistSv()
 DEFAULT_IMPL()
 
-void LocApiBase::setConstellationControl(const GnssSvTypeConfig& /*config*/)
+void LocApiBase::setConstellationControl(const GnssSvTypeConfig& /*config*/,
+                                         LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
 void LocApiBase::getConstellationControl()
 DEFAULT_IMPL()
 
-void LocApiBase::resetConstellationControl()
+void LocApiBase::resetConstellationControl(LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
-LocationError LocApiBase::
+void LocApiBase::
     setConstrainedTuncMode(bool /*enabled*/,
                            float /*tuncConstraint*/,
-                           uint32_t /*energyBudget*/)
-DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
+                           uint32_t /*energyBudget*/,
+                           LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
 
-LocationError LocApiBase::
-    setPositionAssistedClockEstimatorMode(bool /*enabled*/)
-DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
+void LocApiBase::
+    setPositionAssistedClockEstimatorMode(bool /*enabled*/,
+                                          LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
 
 LocationError LocApiBase::getGnssEnergyConsumed()
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
@@ -874,5 +885,42 @@ DEFAULT_IMPL()
 void LocApiBase::addToCallQueue(LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
+void LocApiBase::updateSystemPowerState(PowerStateType /*powerState*/)
+DEFAULT_IMPL()
 
+void LocApiBase::
+    configRobustLocation(bool /*enabled*/,
+                         bool /*enableForE911*/,
+                         LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    getRobustLocationConfig(uint32_t sessionId, LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    configMinGpsWeek(uint16_t minGpsWeek,
+                     LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    getMinGpsWeek(uint32_t sessionId, LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+LocationError LocApiBase::
+    setParameterSync(const GnssConfig& gnssConfig)
+DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
+
+void LocApiBase::
+    getParameter(uint32_t sessionId, GnssConfigFlagsMask flags, LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    configConstellationMultiBand(const GnssSvTypeConfig& secondaryBandConfig,
+                                 LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    getConstellationMultiBandConfig(uint32_t sessionId, LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
 } // namespace loc_core

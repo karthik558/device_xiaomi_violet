@@ -7,7 +7,7 @@ AC_PREREQ(2.61)
 # Initialize the gps location-batching package version 1.0.0
 AC_INIT([location-batching],1.0.0)
 # Does not strictly follow GNU Coding standards
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 # Disables auto rebuilding of configure, Makefile.ins
 AM_MAINTAINER_MODE
 # Verifies the --srcdir is correct by checking for the path
@@ -36,10 +36,6 @@ AC_SUBST([GPSUTILS_LIBS])
 PKG_CHECK_MODULES([LOCCORE], [loc-core])
 AC_SUBST([LOCCORE_CFLAGS])
 AC_SUBST([LOCCORE_LIBS])
-
-PKG_CHECK_MODULES([GEOFENCE], [location-geofence])
-AC_SUBST([GEOFENCE_CFLAGS])
-AC_SUBST([GEOFENCE_LIBS])
 
 AC_ARG_WITH([locpla_includes],
       AC_HELP_STRING([--with-locpla-includes=@<:@dir@:>@],

@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, 2016-2019 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2014, 2016-2020 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -70,9 +70,11 @@ protected:
     LocApiBase* mLocApi;
     LocAdapterProxyBase* mLocAdapterProxyBase;
     const MsgTask* mMsgTask;
+    bool mAdapterAdded;
+
     inline LocAdapterBase(const MsgTask* msgTask) :
         mIsMaster(false), mEvtMask(0), mContext(NULL), mLocApi(NULL),
-        mLocAdapterProxyBase(NULL), mMsgTask(msgTask) {}
+        mLocAdapterProxyBase(NULL), mMsgTask(msgTask), mAdapterAdded(false) {}
 
     /* ==== CLIENT ========================================================================= */
     typedef std::map<LocationAPI*, LocationCallbacks> ClientDataMap;
@@ -89,9 +91,27 @@ protected:
 
 public:
     inline virtual ~LocAdapterBase() { mLocApi->removeAdapter(this); }
+    // When waitForDoneInit is not specified or specified as false,
+    // handleEngineUpEvent may be called on the child adapter object from
+    // a different thread before the constructor of the child
+    // object finishes.
+    //
+    // If the handleEngineUpEvent relies on member variables of the constructor
+    // of the child adapter to be initialized first, we need to specify the
+    // waitForDoneInit to *TRUE* to delay handleEngineUpEvent to get called
+    // until when the child adapter finishes its initialization and notify
+    // LocAdapterBase via doneInit method.
     LocAdapterBase(const LOC_API_ADAPTER_EVENT_MASK_T mask,
                    ContextBase* context, bool isMaster = false,
-                   LocAdapterProxyBase *adapterProxyBase = NULL);
+                   LocAdapterProxyBase *adapterProxyBase = NULL,
+                   bool waitForDoneInit = false);
+
+    inline void doneInit() {
+        if (!mAdapterAdded) {
+            mLocApi->addAdapter(this);
+            mAdapterAdded = true;
+        }
+    }
 
     inline LOC_API_ADAPTER_EVENT_MASK_T
         checkMask(LOC_API_ADAPTER_EVENT_MASK_T mask) const {
@@ -151,9 +171,13 @@ public:
                                      const GpsLocationExtended& locationExtended,
                                      enum loc_sess_status status,
                                      LocPosTechMask loc_technology_mask,
-                                     bool fromEngineHub = false,
                                      GnssDataNotification* pDataNotify = nullptr,
                                      int msInWeek = -1);
+    virtual void reportEnginePositionsEvent(unsigned int count,
+                                            EngineLocationInfo* locationArr) {
+        (void)count;
+        (void)locationArr;
+    }
     virtual void reportSvEvent(const GnssSvNotification& svNotify,
                                bool fromEngineHub=false);
     virtual void reportDataEvent(const GnssDataNotification& dataNotify, int msInWeek);
@@ -182,6 +206,7 @@ public:
             GpsLocationExtended &location_extended, LocPosTechMask tech_mask);
     virtual void reportGnssSvIdConfigEvent(const GnssSvIdConfig& config);
     virtual void reportGnssSvTypeConfigEvent(const GnssSvTypeConfig& config);
+    virtual void reportGnssConfigEvent(uint32_t sessionId, const GnssConfig& gnssConfig);
     virtual bool requestOdcpiEvent(OdcpiRequestInfo& request);
     virtual bool reportGnssEngEnergyConsumedEvent(uint64_t energyConsumedSinceFirstBoot);
     virtual bool reportDeleteAidingDataEvent(GnssAidingData &aidingData);

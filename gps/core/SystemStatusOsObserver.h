@@ -1,4 +1,4 @@
-/* Copyright (c) 2015-2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2017, 2020 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -60,6 +60,10 @@ typedef LocUnorderedSetMap<IDataItemObserver*, DataItemId> ClientToDataItems;
 typedef LocUnorderedSetMap<DataItemId, IDataItemObserver*> DataItemToClients;
 typedef unordered_map<DataItemId, IDataItemCore*> DataItemIdToCore;
 typedef unordered_map<DataItemId, int> DataItemIdToInt;
+#ifdef USE_GLIB
+// Cache details of backhaul client requests
+typedef unordered_set<string> ClientBackhaulReqCache;
+#endif
 
 struct ObserverContext {
     IDataItemSubscription* mSubscriptionObj;
@@ -83,12 +87,7 @@ public:
     inline SystemStatusOsObserver(SystemStatus* systemstatus, const MsgTask* msgTask) :
             mSystemStatus(systemstatus), mContext(msgTask, this),
             mAddress("SystemStatusOsObserver"),
-            mClientToDataItems(MAX_DATA_ITEM_ID), mDataItemToClients(MAX_DATA_ITEM_ID)
-#ifdef USE_QCMAP
-            , mBackHaulConnectReqCount(0)
-#endif
-    {
-    }
+            mClientToDataItems(MAX_DATA_ITEM_ID), mDataItemToClients(MAX_DATA_ITEM_ID) {}
 
     // dtor
     ~SystemStatusOsObserver();
@@ -106,10 +105,16 @@ public:
     // To set the framework action request object
     inline void setFrameworkActionReqObj(IFrameworkActionReq* frameworkActionReqObj) {
         mContext.mFrameworkActionReqObj = frameworkActionReqObj;
-#ifdef USE_QCMAP
-        if (mBackHaulConnectReqCount > 0) {
-            connectBackhaul();
-            mBackHaulConnectReqCount = 0;
+#ifdef USE_GLIB
+        uint32_t numBackHaulClients = mBackHaulConnReqCache.size();
+        if (numBackHaulClients > 0) {
+            // For each client, invoke connectbackhaul.
+            for (auto clientName : mBackHaulConnReqCache) {
+                LOC_LOGd("Invoke connectBackhaul for client: %s", clientName.c_str());
+                connectBackhaul(clientName);
+            }
+            // Clear the set
+            mBackHaulConnReqCache.clear();
         }
 #endif
     }
@@ -134,9 +139,9 @@ public:
     // IFrameworkActionReq Overrides
     virtual void turnOn(DataItemId dit, int timeOut = 0) override;
     virtual void turnOff(DataItemId dit) override;
-#ifdef USE_QCMAP
-    virtual bool connectBackhaul() override;
-    virtual bool disconnectBackhaul();
+#ifdef USE_GLIB
+    virtual bool connectBackhaul(const string& clientName) override;
+    virtual bool disconnectBackhaul(const string& clientName) override;
 #endif
 
 private:
@@ -151,9 +156,9 @@ private:
     // Cache the subscribe and requestData till subscription obj is obtained
     void cacheObserverRequest(ObserverReqCache& reqCache,
             const list<DataItemId>& l, IDataItemObserver* client);
-#ifdef USE_QCMAP
+#ifdef USE_GLIB
     // Cache the framework action request for connect/disconnect
-    int         mBackHaulConnectReqCount;
+    ClientBackhaulReqCache  mBackHaulConnReqCache;
 #endif
 
     void subscribe(const list<DataItemId>& l, IDataItemObserver* client, bool toRequestData);

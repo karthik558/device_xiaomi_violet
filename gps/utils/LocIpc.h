@@ -1,4 +1,4 @@
-/* Copyright (c) 2017-2018 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2018, 2020 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -35,12 +35,13 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <sys/un.h>
+#include <unordered_set>
+#include <mutex>
 #include <LocThread.h>
 
 using namespace std;
 
 namespace loc_util {
-
 
 class LocIpcRecver;
 class LocIpcSender;
@@ -53,9 +54,38 @@ public:
     // LocIpc client can overwrite this function to get notification
     // when the socket for LocIpc is ready to receive messages.
     inline virtual void onListenerReady() {}
-    virtual void onReceive(const char* data, uint32_t length)= 0;
+    virtual void onReceive(const char* data, uint32_t len, const LocIpcRecver* recver) = 0;
 };
 
+class LocIpcQrtrWatcher {
+    const unordered_set<int> mServicesToWatch;
+    unordered_set<int> mClientsToWatch;
+    mutex mMutex;
+    inline bool isInWatch(const unordered_set<int>& idsToWatch, int id) {
+        return idsToWatch.find(id) != idsToWatch.end();
+    }
+protected:
+    inline virtual ~LocIpcQrtrWatcher() {}
+    inline LocIpcQrtrWatcher(unordered_set<int> servicesToWatch)
+            : mServicesToWatch(servicesToWatch) {}
+public:
+    enum class ServiceStatus { UP, DOWN };
+    inline bool isServiceInWatch(int serviceId) {
+        return isInWatch(mServicesToWatch, serviceId);
+    }
+    inline bool isClientInWatch(int nodeId) {
+        lock_guard<mutex> lock(mMutex);
+        return isInWatch(mClientsToWatch, nodeId);
+    }
+    inline void addClientToWatch(int nodeId) {
+        lock_guard<mutex> lock(mMutex);
+        mClientsToWatch.emplace(nodeId);
+    }
+    virtual void onServiceStatusChange(int sericeId, int instanceId, ServiceStatus status,
+                                       const LocIpcSender& sender) = 0;
+    inline virtual void onClientGone(int nodeId, int portId) {}
+    inline const unordered_set<int>& getServicesToWatch() { return mServicesToWatch; }
+};
 
 class LocIpc {
 public:
@@ -82,9 +112,16 @@ public:
     static unique_ptr<LocIpcRecver>
             getLocIpcInetTcpRecver(const shared_ptr<ILocIpcListener>& listener,
                                    const char* serverName, int32_t port);
+    inline static unique_ptr<LocIpcRecver>
+            getLocIpcQrtrRecver(const shared_ptr<ILocIpcListener>& listener,
+                                int service, int instance) {
+        const shared_ptr<LocIpcQrtrWatcher> qrtrWatcher = nullptr;
+        return getLocIpcQrtrRecver(listener, service, instance, qrtrWatcher);
+    }
     static unique_ptr<LocIpcRecver>
             getLocIpcQrtrRecver(const shared_ptr<ILocIpcListener>& listener,
-                                int service, int instance);
+                                int service, int instance,
+                                const shared_ptr<LocIpcQrtrWatcher>& qrtrWatcher);
 
     static pair<shared_ptr<LocIpcSender>, unique_ptr<LocIpcRecver>>
             getLocIpcQmiLocServiceSenderRecverPair(const shared_ptr<ILocIpcListener>& listener,
@@ -123,15 +160,18 @@ private:
 class LocIpcSender {
 protected:
     LocIpcSender() = default;
-    virtual ~LocIpcSender() = default;
     virtual bool isOperable() const = 0;
     virtual ssize_t send(const uint8_t data[], uint32_t length, int32_t msgId) const = 0;
 public:
-    virtual void informRecverRestarted() {}
+    virtual ~LocIpcSender() = default;
     inline bool isSendable() const { return isOperable(); }
     inline bool sendData(const uint8_t data[], uint32_t length, int32_t msgId) const {
         return isSendable() && (send(data, length, msgId) > 0);
     }
+    virtual unique_ptr<LocIpcRecver> getRecver(const shared_ptr<ILocIpcListener>& listener) {
+        return nullptr;
+    }
+    inline virtual void copyDestAddrFrom(const LocIpcSender& otherSender) {}
 };
 
 class LocIpcRecver {
@@ -148,6 +188,9 @@ public:
     inline bool recvData() const { return isRecvable() && (recv() > 0); }
     inline bool isRecvable() const { return mDataCb != nullptr && mIpcSender.isSendable(); }
     virtual void onListenerReady() { if (mDataCb != nullptr) mDataCb->onListenerReady(); }
+    inline virtual unique_ptr<LocIpcSender> getLastSender() const {
+        return nullptr;
+    }
     virtual void abort() const = 0;
     virtual const char* getName() const = 0;
 };
@@ -158,8 +201,8 @@ class Sock {
     const uint32_t mMaxTxSize;
     ssize_t sendto(const void *buf, size_t len, int flags, const struct sockaddr *destAddr,
                    socklen_t addrlen) const;
-    ssize_t recvfrom(const shared_ptr<ILocIpcListener>& dataCb, int sid, int flags,
-                     struct sockaddr *srcAddr, socklen_t *addrlen) const;
+    ssize_t recvfrom(const LocIpcRecver& recver, const shared_ptr<ILocIpcListener>& dataCb,
+                     int sid, int flags, struct sockaddr *srcAddr, socklen_t *addrlen) const;
 public:
     int mSid;
     inline Sock(int sid, const uint32_t maxTxSize = 8192) : mMaxTxSize(maxTxSize), mSid(sid) {}
@@ -167,8 +210,8 @@ public:
     inline bool isValid() const { return -1 != mSid; }
     ssize_t send(const void *buf, uint32_t len, int flags, const struct sockaddr *destAddr,
                  socklen_t addrlen) const;
-    ssize_t recv(const shared_ptr<ILocIpcListener>& dataCb, int flags, struct sockaddr *srcAddr,
-                 socklen_t *addrlen, int sid = -1) const;
+    ssize_t recv(const LocIpcRecver& recver, const shared_ptr<ILocIpcListener>& dataCb, int flags,
+                 struct sockaddr *srcAddr, socklen_t *addrlen, int sid = -1) const;
     ssize_t sendAbort(int flags, const struct sockaddr *destAddr, socklen_t addrlen);
     inline void close() {
         if (isValid()) {
@@ -176,6 +219,23 @@ public:
             mSid = -1;
         }
     }
+};
+
+class SockRecver : public LocIpcRecver {
+    shared_ptr<Sock> mSock;
+protected:
+    inline virtual ssize_t recv() const override {
+        return mSock->recv(*this, mDataCb, 0, nullptr, nullptr);
+    }
+public:
+    inline SockRecver(const shared_ptr<ILocIpcListener>& listener,
+                  LocIpcSender& sender, shared_ptr<Sock> sock) :
+            LocIpcRecver(listener, sender), mSock(sock) {
+    }
+    inline virtual const char* getName() const override {
+        return "SockRecver";
+    }
+    inline virtual void abort() const override {}
 };
 
 }
