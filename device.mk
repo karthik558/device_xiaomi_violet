@@ -139,9 +139,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.sm6150 \
     memtrack.sm6150
 
-PRODUCT_PACKAGES += \
-    libtinyxml
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
@@ -229,7 +226,6 @@ PRODUCT_PACKAGES += \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
-    libOmxG711Enc \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
@@ -313,10 +309,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc
-
-# RenderScript
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -413,7 +405,6 @@ PRODUCT_PACKAGES += \
     hostapd \
     ipacm \
     IPACM_cfg.xml \
-    libwifi-hal-qcom \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
