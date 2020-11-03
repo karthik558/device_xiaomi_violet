@@ -174,7 +174,6 @@ PRODUCT_PACKAGES += \
     libbatching \
     libgeofencing \
     libgnss \
-    libgnsspps \
     libsensorndkbridge
 
 PRODUCT_COPY_FILES += \
