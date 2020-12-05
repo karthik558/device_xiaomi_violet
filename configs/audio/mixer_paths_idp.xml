@@ -455,6 +455,7 @@
     <ctl name="PRIM_MI2S_TX Format" value="S24_LE" />
     <ctl name="PRIM_MI2S_RX_VI_FB_MUX" value="ZERO" />
 
+    <ctl name="TFA Profile" value="powerdown" />
     <!-- Add the new path end -->
     <!-- Codec controls end -->
 
