@@ -1,6 +1,3 @@
-# Audio
-/dev/socket/audio_hw_socket                                          u:object_r:audio_socket:s0
-
 # Camera
 /mnt/vendor/persist/camera(/.*)?                                     u:object_r:camera_persist_file:s0
 
