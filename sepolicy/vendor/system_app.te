@@ -6,3 +6,6 @@ allow system_app vibrator_dev:file rw_file_perms;
 allow system_app sysfs_leds:dir search;
 
 get_prop(system_app, vendor_default_prop)
+
+# Fps Info
+allow system_app vendor_sysfs_graphics:file { getattr open read };
