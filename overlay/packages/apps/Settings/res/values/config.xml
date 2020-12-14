@@ -15,6 +15,9 @@
 
     <!-- Device specific doze package -->
     <string name="config_customDozePackage">org.lineageos.settings/org.lineageos.settings.doze.DozeSettingsActivity</string>
+   
+  <!-- For Ultra Power Saving -->
+     <bool name="config_supportUltraPowerSaving">true</bool>
 
     <!-- Whether SELinux status should be shown or not. -->
     <bool name="config_show_selinux_status">true</bool>
