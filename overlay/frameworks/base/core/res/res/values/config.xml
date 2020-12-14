@@ -486,6 +486,10 @@
                 <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
+    
+    <!-- Allow devices override audio panel location to the left side -->
+    <bool name="config_audioPanelOnLeftSide">false</bool>
+
     <string translatable="false" name="config_mainBuiltInDisplayCutout">M -80,0 L -80,80 L 80,80 L 80,0 Z</string>
 
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
