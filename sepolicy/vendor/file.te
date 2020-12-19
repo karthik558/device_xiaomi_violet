@@ -15,3 +15,5 @@ type sysfs_fastcharge, sysfs_type, fs_type;
 # Kcal
 type kcal_dev, sysfs_type, fs_type;
 
+# Vibrator
+type vibrator_dev, sysfs_type, fs_type;
