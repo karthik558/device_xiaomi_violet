@@ -17,3 +17,6 @@ type kcal_dev, sysfs_type, fs_type;
 
 # Smart Charging
 type sysfs_scharge, sysfs_type, fs_type;
+
+# Vibrator
+type vibrator_dev, sysfs_type, fs_type;
