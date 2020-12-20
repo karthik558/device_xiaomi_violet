@@ -130,10 +130,10 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
                 DeviceSettings.PREF_USB_FASTCHARGE, 0));
         FileUtils.setValue(DeviceSettings.TORCH_1_BRIGHTNESS_PATH,
                 Settings.Secure.getInt(context.getContentResolver(),
-                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
+                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 150));
         FileUtils.setValue(DeviceSettings.TORCH_2_BRIGHTNESS_PATH,
                 Settings.Secure.getInt(context.getContentResolver(),
-                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
+                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 150));
 	// Dirac
         context.startService(new Intent(context, DiracService.class));
     }
