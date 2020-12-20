@@ -35,3 +35,9 @@ on boot
 # FPS Info
   chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
   chmod 0666 /sys/class/drm/sde-crtc-0/measured_fps
+
+on property:sys.boot_completed=1
+    # Restrict permissions to socket file
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
+
