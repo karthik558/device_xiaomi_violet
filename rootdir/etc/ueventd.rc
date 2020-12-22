@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2015, 2017-2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2015, 2017-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -55,6 +55,7 @@ firmware_directories /vendor/firmware_mnt/image/
 # Permissions for BT/FM
 /dev/btpower              0660   bluetooth  system
 
+# Permissions for pta
 /dev/smdcntl8             0640   radio      radio
 /dev/at_mdm0              0640   radio      radio
 /dev/video*               0660   system     camera
@@ -117,12 +118,13 @@ firmware_directories /vendor/firmware_mnt/image/
 
 # FRP
 /dev/block/platform/soc/1d84000.ufshc/by-name/frp       0600   system     system
+/dev/block/platform/soc/7c4000.sdhci/by-name/frp        0600   system     system
 
 # Kmsg device
 /dev/kmsg                 0620   root       system
 
 # NPU device
-/dev/msm_npu             0644   system     system
+/dev/msm_npu              0644   system     system
 
 # USB role switch
 /sys/class/dual_role_usb/*	data_role	0660	system	system
