@@ -653,16 +653,14 @@ vendor/lib64/libkeymasterutils.so|b9c888d579c9cf7a1c8f463be4048eb9d935daf8
 vendor/lib64/libqcbor.so|67acd94f3c7110c9419f0fd064b6eb69c09a0738
 vendor/lib64/libqtikeymaster4.so|9c45da4b7daa40d44592d94061858813e35473d0
 
-# Listen - from davinci-user 11 RKQ1.200826.002 20.12.8 release-keys
-vendor/lib/hw/sound_trigger.primary.sm6150.so|8409338433e25198c0434047b0781d2eac9be094
+# Listen - from qssi-user-11-RKQ1.200826.002-V12.2.3.0.RJKMIXM-release-keys
+vendor/lib/hw/sound_trigger.primary.kona.so:vendor/lib/hw/sound_trigger.primary.sm6150.so|9788d256535beb648555eb81abbaf704e8ab7d78
 vendor/lib/libadpcmdec.so|5232c32b93a8653612cd8fcdde161a9d7fe39c7f
-vendor/lib/libgcs-calwrapper.so|3685273d2b59051021a0b8b88d155385f59db0db
-vendor/lib/libgcs-ipc.so|8d23827d23e84148f71bd90203d168bea239296e
-vendor/lib/libgcs-osal.so|c8055991809da427b5fdf0b18b67cefc7b17a399
-vendor/lib/libgcs.so|086bb26c55aff0228a9bdece77440a4b87b35e5e
-vendor/lib/liblistensoundmodel2.so|00dd3b7348229fb273216bf720d1ad512d358343
-vendor/lib/librice.so|30f281ca3307bee5072c7b1eeea743b466af95ac
-vendor/lib/libsmwrapper.so|4c9ba6f36b87aa32464f79b0e2168c59f46172cb
+vendor/lib/libgcs-calwrapper.so|8cf1158b9e2b687f41ccba805b08f3a7a798836e
+vendor/lib/libgcs-ipc.so|968eebf25011b654065d5c49a578fbc5d7bfe47a
+vendor/lib/libgcs-osal.so|7f592b86760afcf1c9f255cd8c645602ee1be56f
+vendor/lib/libgcs.so|0b1059e541905f713cac0d9cbeb1c2b5d6bc79b9
+vendor/lib/libsmwrapper.so|36f382d4319597ac748c0e56f095bdaf214d6829
 
 # Media - from LA.UM.9.1.r1-07300-SMxxx0.0
 vendor/etc/configstore/vpp.configstore.xml|ed961545186c66fd9523f25866c74f2e11ee63d7
