@@ -644,6 +644,12 @@ vendor/lib64/libtinyxml2_1.so|92101861d95cbdf9625d192d0b2295baa5960b68
 vendor/lib64/hw/vulkan.adreno.so|24057c2d3bfbc3933f277ef1ab8fa0820f33d97a
 vendor/lib/hw/vulkan.adreno.so|fef7f56e8adf7470a4221dbad53ff49b942a9716
 
+# Hotword - from qssi-user-11-RKQ1.200826.002-V12.2.3.0.RJKMIXM-release-keys
+-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk;PRESIGNED|91c49e2f1f95fe76952eb55d7a936a997685b964
+-product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk;PRESIGNED|89b2c917c0c35489f10306f1627b2cf7cf6b59cf
+system_ext/framework/com.android.hotwordenrollment.common.util.jar|0492cd3db2e253e23b78e56fa8ea7b3a4b15edeb
+system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|563a58554d9c0dd0608552b644fbf74519a447bb
+
 # Keystore - from davinci-user 11 RKQ1.200826.002 20.12.8 release-keys
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti|12777e1f7f44222c7afa1aa5ad9514a774175928
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc|c8999fb1bccbef81e6b362059e9a6ebd023de98f
