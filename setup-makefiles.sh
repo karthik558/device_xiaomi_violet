@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE=davinci
+DEVICE=violet
 VENDOR=xiaomi
 INITIAL_COPYRIGHT_YEAR=2020
 

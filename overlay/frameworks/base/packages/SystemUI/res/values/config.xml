@@ -29,4 +29,6 @@
 
     <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
     <bool name="doze_suspend_display_state_supported">true</bool>
+
+    <dimen name="rounded_corner_content_padding">12dp</dimen>
 </resources>

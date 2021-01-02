@@ -22,7 +22,7 @@
 
 #include <fstream>
 
-#define NOTIFICATION_LED    "/sys/class/leds/left/"
+#define NOTIFICATION_LED    "/sys/class/leds/red/"
 
 #define BREATH              "breath"
 #define BRIGHTNESS          "brightness"

@@ -28,8 +28,8 @@
 #
 
 on init
-    wait /dev/block/platform/soc/1d84000.ufshc
-    symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
@@ -40,21 +40,6 @@ on init
     chown cameraserver cameraserver /dev/cpuset/camera-daemon
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
-
-    # Camera motor
-    chown system camera /dev/drv8846_dev
-    chown system camera /dev/akm09970
-    chmod 0660 /dev/drv8846_dev
-    chmod 0660 /dev/akm09970
-
-on init && property:ro.boot.hwc=GLOBAL
-    setprop ro.boot.product.hardware.sku davinci
-
-on init && property:ro.boot.hwc=CN
-    setprop ro.boot.product.hardware.sku davinci
-
-on property:ro.boot.product.hardware.sku=davinci
-    enable vendor.nfc_hal_service
 
 on fs
     mount_all --early
@@ -216,17 +201,3 @@ service vendor.nv_mac /vendor/bin/nv_mac
     user system
     group system inet net_admin wifi net_raw
     oneshot
-
-service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
-    class hal
-    user system
-    group system
-    writepid /dev/cpuset/system-background/tasks
-
-service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
-    override
-    class hal
-    user nfc
-    group nfc
-    writepid /dev/cpuset/system-background/tasks
-    disabled

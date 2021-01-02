@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE=davinci
+DEVICE=violet
 VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks

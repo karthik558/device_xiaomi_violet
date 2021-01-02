@@ -1,26 +1,24 @@
-Copyright (C) 2020 The LineageOS Project
+The Xiaomi Redmi Note 7 Pro (codenamed _"violet"_) is a mid range smartphone from Xiaomi.
 
-Device configuration for Xiaomi Mi 9T/Redmi K20
-=========================================
-
-The Xiaomi Mi 9T/Redmi K20 (codenamed _"davinci"_) is a mid-range smartphone from Xiaomi.
-
-It was announced in June 2019. Release date was June 2019.
+It was announced in February 2019 and released in March 2019.
 
 ## Device specifications
 
-Basic   | Spec Sheet
--------:|:-------------------------
-CPU     | Dual-core 2.2 GHz Kryo 470 Gold & Hexa-core 1.8 GHz Kryo 470 Silver
-Chipset | Qualcomm SDM730 Snapdragon 730
-GPU     | Adreno 618
-Memory  | 6 GB RAM
-Shipped Android Version | 9.0
-Storage | 64/128 GB (UFS 2.0)
-Battery | Non-removable Li-Po 4000 mAh
-Display | 1080 x 2340 pixels, 6.39 inches (~428 ppi pixel density)
-Camera  | Main 48 MP f/1.8, telephoto lens, ultrawide lens, dual-LED (dual tone) flash
+| Device       | Xiaomi Redmi Note 7 Pro                         |
+| -----------: | :---------------------------------------------- |
+| SoC          | Qualcomm SM6150 Snapdragon 675                  |
+| CPU          | 2 x 2 GHz Kryo 460 & 6 x 1.2 GHz Kryo 460       |
+| GPU          | Adreno 612                                      |
+| Memory       | 4GB / 6GB RAM (LPDDR4X)                         |
+| Shipped Android version | 9.0 with MIUI 10                     |
+| Storage      | 64GB / 128GB eMMC 5.1 flash storage             |
+| Battery      | Non-removable Li-Po 4000 mAh                    |
+| Dimensions   | 159.21 x 75.21 x 8.1 mm                         |
+| Display      | 2340 x 1080 (19.5:9), 6.3  inch                 |
+| Rear Camera 1 | 48MP, 1.6-micron pixels, f/1.79 Dual LED flash |
+| Rear Camera 2 | 5 MP, 1.12-micron pixels, f/2.2                |
+| Front Camera | 13 MP, 1.12-micron pixels, f/2.0                |
 
 ## Device picture
 
-![Xiaomi Mi 9T/Redmi K20](https://i01.appmifile.com/webfile/globalimg/products/pc/redmik20/index_slider_1.png "Xiaomi Mi 9T/Redmi K20 in carbon black")
+![Xiaomi Redmi Note 7 Pro](https://moven.bg/img/cms/Redmi%20note%207/5.jpg)
