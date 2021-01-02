@@ -12,7 +12,6 @@
 
 # HALs
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.violet        u:object_r:hal_light_default_exec:s0
-/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.violet    u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.2-service\.xiaomi_violet                   u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.touchfeature@1\.0-service   u:object_r:hal_touchfeature_default_exec:s0
 

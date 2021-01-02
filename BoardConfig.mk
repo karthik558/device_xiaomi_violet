@@ -17,6 +17,8 @@
 DEVICE_PATH := device/xiaomi/violet
 
 BUILD_BROKEN_DUP_RULES := true
+PRODUCT_VENDOR_MOVE_ENABLED := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Inherit from proprietary files
 include vendor/xiaomi/violet/BoardConfigVendor.mk
@@ -117,6 +119,8 @@ BOARD_KERNEL_CMDLINE += loop.max_part=7
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+
 # Media
 TARGET_USES_ION := true
 TARGET_DISABLED_UBWC := true
@@ -140,6 +144,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
+MSMSTEPPE := sm6150
 TARGET_BOARD_PLATFORM := sm6150
 
 # Power
@@ -175,6 +180,7 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
