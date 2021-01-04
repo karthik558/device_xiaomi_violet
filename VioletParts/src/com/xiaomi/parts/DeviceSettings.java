@@ -59,7 +59,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String PREF_SELINUX_PERSISTENCE = "selinux_persistence";
 
     private static final String PREF_CLEAR_SPEAKER = "clear_speaker_settings";
-
+    public static final String KEY_VIBSTRENGTH = "vib_strength";
     final static String PREF_TORCH_BRIGHTNESS = "torch_brightness";
     public static final String TORCH_1_BRIGHTNESS_PATH = "/sys/devices/platform/soc/c440000.qcom," +
       "spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:torch_0/max_brightness";
