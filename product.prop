@@ -30,7 +30,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.ime.kb_pad_port_l=7 \
     ro.com.google.ime.kb_pad_port_r=7 \
     ro.com.google.ime.kb_pad_land_l=14 \
-    ro.com.google.ime.kb_pad_land_r=14
+    ro.com.google.ime.kb_pad_land_r=14 \
+    ro.com.google.ime.kb_pad_port_b=1 \
+    ro.com.google.ime.corner_key_r=32
 
 # Graphics
 debug.sf.latch_unsignaled=1
