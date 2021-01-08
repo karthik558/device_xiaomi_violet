@@ -12,6 +12,7 @@ $(call inherit-product, vendor/arrow/config/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 IS_PHONE := true
+DEVICE_MAINTAINER := Aftab Ashrafi
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := arrow_violet
