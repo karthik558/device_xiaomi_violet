@@ -9,7 +9,7 @@ vendor/etc/acdbdata/IDP/IDP_Headset_cal.acdb
 vendor/etc/acdbdata/IDP/IDP_Speaker_cal.acdb
 vendor/etc/acdbdata/IDP/IDP_workspaceFile.qwsp
 
-# ADSP - davinci-user 11 RKQ1.200826.002 20.12.28 release-keys
+# ADSP - from LA.UM.9.1.r1-08300-SMxxx0.0
 vendor/bin/adsprpcd
 vendor/bin/cdsprpcd
 vendor/etc/init/vendor.qti.adsprpc-sscrpc-service.rc
