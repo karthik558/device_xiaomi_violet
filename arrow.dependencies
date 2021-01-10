@@ -1,11 +1,11 @@
 [
   {
     "repository": "android_kernel_xiaomi_violet",
-    "target_path": "kernel/xiaomi/sm6150"
+    "target_path": "kernel/xiaomi/violet"
   },
   {
     "repository": "android_vendor_xiaomi_violet",
-    "target_path": "vendor/xiaomi"
+    "target_path": "vendor/xiaomi/violet"
   },
   {
     "repository": "android_packages_apps_GCamGOPrebuilt",
