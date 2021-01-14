@@ -14,6 +14,9 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.line
 # Charger
 ro.charger.enable_suspend=true
 
+#GBoard
+ro.com.google.ime.kb_pad_port_b=1
+
 # LMKD
 ro.config.low_ram=false
 
