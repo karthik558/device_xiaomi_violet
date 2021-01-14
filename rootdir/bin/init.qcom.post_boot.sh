@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2012-2013, 2016-2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2013, 2016-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -70,7 +70,7 @@ function configure_memory_parameters() {
     vmpres_file_min=$((minfree_5 + (minfree_5 - rem_minfree_4)))
     echo $vmpres_file_min > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 
-    echo "18432,23040,27648,64512,165888,225792" > /sys/module/lowmemorykiller/parameters/minfree
+    echo "15360,19200,23040,26880,34415,43737" > /sys/module/lowmemorykiller/parameters/minfree
 
     # Enable adaptive LMK for all targets &
     # use Google default LMK series for all 64-bit targets >=2GB.
@@ -113,24 +113,10 @@ case "$target" in
             echo 250 > $llccbw/bw_hwmon/up_scale
             echo 1600 > $llccbw/bw_hwmon/idle_mbps
         done
+    done
 
-        for npubw in $device/*npu-npu-ddr-bw/devfreq/*npu-npu-ddr-bw
-        do
-            echo 1 > /sys/devices/virtual/npu/msm_npu/pwr
-            echo "bw_hwmon" > $npubw/governor
-            echo 40 > $npubw/polling_interval
-            echo "1144 1720 2086 2929 3879 5931 6881" > $npubw/bw_hwmon/mbps_zones
-            echo 4 > $npubw/bw_hwmon/sample_ms
-            echo 80 > $npubw/bw_hwmon/io_percent
-            echo 20 > $npubw/bw_hwmon/hist_memory
-            echo 10 > $npubw/bw_hwmon/hyst_length
-            echo 30 > $npubw/bw_hwmon/down_thres
-            echo 0 > $npubw/bw_hwmon/guard_band_mbps
-            echo 250 > $npubw/bw_hwmon/up_scale
-            echo 0 > $npubw/bw_hwmon/idle_mbps
-            echo 0 > /sys/devices/virtual/npu/msm_npu/pwr
-        done
-
+    for device in /sys/devices/platform/soc
+    do
         # Enable mem_latency governor for L3, LLCC, and DDR scaling
         for memlat in $device/*cpu*-lat/devfreq/*cpu*-lat
         do
@@ -154,12 +140,21 @@ case "$target" in
             echo "compute" > $latfloor/governor
             echo 10 > $latfloor/polling_interval
         done
+    done;
 
-    done
+    # device/target specific folder
+    setprop vendor.dcvs.prop 1
+
+    # Turn off scheduler boost at the end
+    echo 0 > /proc/sys/kernel/sched_boost
+
+    # Turn on sleep modes.
+    echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
     # Set Memory parameters
     configure_memory_parameters
     ;;
 esac
 
+# Post-setup services
 setprop vendor.post_boot.parsed 1
