@@ -92,9 +92,9 @@ public class FPSInfoService extends Service {
             float density = c.getResources().getDisplayMetrics().density;
             int paddingPx = Math.round(5 * density);
             setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
-            setBackgroundColor(Color.argb(0x60, 0, 0, 0));
+            setBackgroundColor(Color.argb(0x0, 0, 0, 0));
 
-            final int textSize = Math.round(12 * density);
+            final int textSize = Math.round(17 * density);
 
             Typeface typeface = Typeface.create("monospace", Typeface.NORMAL);
 
@@ -103,13 +103,13 @@ public class FPSInfoService extends Service {
             mOnlinePaint.setAntiAlias(true);
             mOnlinePaint.setTextSize(textSize);
             mOnlinePaint.setColor(Color.WHITE);
-            mOnlinePaint.setShadowLayer(5.0f, 0.0f, 0.0f, Color.BLACK);
+            mOnlinePaint.setShadowLayer(8.0f, 0.0f, 0.0f, Color.BLACK);
 
             mAscent = mOnlinePaint.ascent();
             float descent = mOnlinePaint.descent();
             mFH = (int)(descent - mAscent + .5f);
 
-            final String maxWidthStr="fps: 60.1";
+            final String maxWidthStr="fps: 66.1";
             mMaxWidth = (int)mOnlinePaint.measureText(maxWidthStr);
 
             updateDisplay();
@@ -218,7 +218,7 @@ public class FPSInfoService extends Service {
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             PixelFormat.TRANSLUCENT);
-        params.gravity = Gravity.LEFT | Gravity.TOP;
+        params.gravity = Gravity.RIGHT | Gravity.TOP;
         params.setTitle("FPS Info");
 
         startThread();
