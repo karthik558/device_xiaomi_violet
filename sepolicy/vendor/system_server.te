@@ -5,3 +5,6 @@ allow system_server kcal_dev:dir r_dir_perms;
 allow system_server sysfs_battery_supply:file rw_file_perms;
 
 allow system_server default_android_service:service_manager { add };
+
+# Smart Charging
+allow system_server sysfs_battery_supply:file { getattr open read write };
