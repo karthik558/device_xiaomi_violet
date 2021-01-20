@@ -122,5 +122,8 @@
                     android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+        <service android:name="com.xiaomi.parts.SmartChargingService"
+                android:exported="false">
+        </service>
     </application>
 </manifest>
