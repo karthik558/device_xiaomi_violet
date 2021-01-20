@@ -19,3 +19,6 @@ allow system_app sysfs_leds:dir search;
 allow system_app sysfs_tbrightness:file { open getattr write };
 
 get_prop(system_app, vendor_default_prop)
+
+# USB Fastcharge
+allow system_app sysfs:file { getattr open read write };
