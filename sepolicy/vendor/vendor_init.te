@@ -8,3 +8,6 @@ allow vendor_init {
   proc_dirty
   proc
 }:file w_file_perms;
+
+# Dirac
+allow vendor_init dirac_prop:property_service set;

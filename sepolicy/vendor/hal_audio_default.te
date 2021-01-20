@@ -1,4 +1,5 @@
 # Dirac
+allow hal_audio_default audio_prop:file { open read getattr };
 get_prop(hal_audio_default, dirac_prop)
 set_prop(hal_audio_default, dirac_prop)
 
