@@ -15,38 +15,17 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    
     <PreferenceCategory
-    android:key="selinux"
-    android:title="@string/selinux_category">
-
-    <Preference
-        android:summary="@string/selinux_explanation_summary"
-        android:selectable="false"
-        android:icon="@drawable/ic_warning" />
-
-    <SwitchPreference
-        android:key="selinux_mode"
-        android:title="@string/selinux_mode_title"
-        android:summaryOn="@string/selinux_enforcing_summary"
-        android:summaryOff="@string/selinux_permissive_summary"
-        android:icon="@drawable/ic_linux" />
-
-    <SwitchPreference
-        android:key="selinux_persistence"
-        android:title="@string/selinux_persistence_title"
-        android:summary="@string/selinux_persistence_summary"
-        android:defaultValue="true"
-        android:icon="@drawable/ic_power" />
-        
+        android:key="fps"
+        android:title="@string/fps_info_title">
     <SwitchPreference
         android:key="fps_info"
         android:icon="@drawable/ic_fps_info"
         android:title="@string/fps_info_title"
         android:summary="@string/fps_info_summary"
         android:persistent="true" />
-
-</PreferenceCategory>
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="usb_fastcharge"
