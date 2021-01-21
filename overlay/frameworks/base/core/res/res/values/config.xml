@@ -416,6 +416,9 @@
         <item>500</item>
     </integer-array>
 
+    <!-- If true, the camera will be used more often. -->
+    <bool name="config_adaptive_sleep_available">true</bool>
+
     <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
          percent. The length of this array is assumed to be one greater than
          config_dynamicHysteresisLuxLevels. The darkening threshold is calculated as
