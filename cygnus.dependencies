@@ -1,0 +1,45 @@
+[
+   {
+      "remote":"Cygnus-devices",
+      "repository":"device_xiaomi_violet",
+      "target_path":"device/xiaomi/violet",
+      "branch":"caf-11"
+   },
+   {
+      "remote":"Cygnus-devices",
+      "repository":"kernel_xiaomi_violet",
+      "target_path":"kernel/xiaomi/violet",
+      "branch":"caf-11"
+   },
+   {
+      "remote":"Cygnus-devices",
+      "repository":"vendor_xiaomi_violet",
+      "target_path":"vendor/xiaomi/violet",
+      "branch":"caf-11"
+   },
+   {
+      "remote":"Cygnus-devices",
+      "repository":"vendor_qcom_opensource_audio-hal_primary-hal",
+      "target_path":"vendor/qcom/opensource/audio-hal/primary-hal",
+      "branch":"caf-11-sm8150"
+   },
+   {
+      "remote":"Cygnus-devices",
+      "repository":"hardware_qcom_media",
+      "target_path":"hardware/qcom/media",
+      "branch":"caf-11-sm8150"
+   },
+   {
+      "remote":"Cygnus-devices",
+      "repository":"hardware_qcom_display",
+      "target_path":"hardware/qcom/display",
+      "branch":"caf-11-sm8150"
+   },
+   {
+      "remote":"Cygnus-devices",
+      "repository":"vendor_qcom_opensource_commonsys-intf_display",
+      "target_path":"vendor/qcom/opensource/commonsys/display-intf",
+      "branch":"caf-11-sm8150"
+   }
+]
+
