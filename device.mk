@@ -282,9 +282,19 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS += *
 
+# Perf QTI component
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0 \
+    libtflite \
+    vendor.qti.hardware.servicetracker@1.2.vendor
+
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
+
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service
 
 # Product characteristics
 PRODUCT_CHARACTERISTICS := nosdcard

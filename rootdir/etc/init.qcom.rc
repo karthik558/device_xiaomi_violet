@@ -298,7 +298,7 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     group system
     oneshot
 
-service vendor.power /vendor/bin/hw/android.hardware.power-service-qti
+service vendor.power /vendor/bin/hw/android.hardware.power-service
     class hal
     user system
     group system input
