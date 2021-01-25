@@ -22,7 +22,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
 # Inherit some common CygnusOS stuff.
+CYGNUS_BUILD_TYPE := OFFICIAL
 TARGET_BOOT_ANIMATION_RES := 1080
+WITH_GAPPS := true
 $(call inherit-product, vendor/cygnus/configs/common.mk)
 
 PRODUCT_NAME := cygnus_violet
