@@ -87,8 +87,8 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu6/core_ctl/enable 0
 
     # Setting b.L scheduler parameters
-    write /proc/sys/kernel/sched_downmigrate 65
-    write /proc/sys/kernel/sched_upmigrate 71
+    write /proc/sys/kernel/sched_downmigrate 85
+    write /proc/sys/kernel/sched_upmigrate 95
     write /proc/sys/kernel/sched_group_downmigrate 85
     write /proc/sys/kernel/sched_group_upmigrate 100
     write /proc/sys/kernel/sched_walt_rotate_big_tasks 0
