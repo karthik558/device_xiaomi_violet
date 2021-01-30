@@ -4,3 +4,7 @@ allow system_app sysfs_fastcharge:file { open read getattr write };
 
 # Fps Info
 allow system_app vendor_sysfs_graphics:file { getattr open read };
+
+# Kcal
+allow system_app kcal_dev:file rw_file_perms;
+allow system_app kcal_dev:dir search;
