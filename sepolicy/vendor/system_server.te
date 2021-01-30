@@ -2,3 +2,6 @@
 get_prop(system_server, vendor_persist_camera_prop)
 
 allow system_server default_android_service:service_manager { add };
+
+allow system_server kcal_dev:file rw_file_perms;
+allow system_server kcal_dev:dir r_dir_perms;

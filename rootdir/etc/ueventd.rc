@@ -132,3 +132,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/dual_role_usb/*	mode		0660	system	system
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
+
+# Kcal
+/sys/devices/platform/kcal_ctrl.0/*             0666    system  system
