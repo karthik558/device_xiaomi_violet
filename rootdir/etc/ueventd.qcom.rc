@@ -441,3 +441,6 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 # Motor
 /dev/akm09970             0660   system       camera
 /dev/drv8846_dev          0660   system       camera
+
+# Kcal
+/sys/devices/platform/kcal_ctrl.0/* 0666 system system
