@@ -59,6 +59,9 @@
 # Touchfeature
 /dev/xiaomi-touch          u:object_r:touchfeature_device:s0
 
+# Smart Charging
+/sys/class/power_supply/battery/charging_enabled                    u:object_r:sysfs_scharge:s0
+
 # Force Fast Charge
 /sys/kernel/fast_charge/force_fast_charge       u:object_r:sysfs_fastcharge:s0
 

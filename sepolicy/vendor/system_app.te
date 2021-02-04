@@ -2,6 +2,9 @@
 allow system_app sysfs_fcharge:file { open read getattr write };
 allow system_app sysfs_fastcharge:file { open read getattr write };
 
+# Smart Charging
+allow system_app sysfs_scharge:file { getattr open write };
+
 # Fps Info
 allow system_app vendor_sysfs_graphics:file { getattr open read };
 
