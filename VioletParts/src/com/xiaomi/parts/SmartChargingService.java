@@ -46,7 +46,7 @@ public class SmartChargingService extends Service {
 
     //public static String cool_down = "/sys/class/power_supply/battery/cool_down";
 
-    public static String charging_enabled = "/sys/class/power_supply/battery/charging_enabled";
+    public static String input_suspend = "/sys/class/power_supply/battery/input_suspend";
 
     public static String battery_capacity = "/sys/class/power_supply/battery/capacity";
 
@@ -104,7 +104,7 @@ public class SmartChargingService extends Service {
             float battTemp = ((float) Integer.parseInt(Utils.readLine(battery_temperature))) / 10;
             int battCap = Integer.parseInt(Utils.readLine(battery_capacity));
             //int coolDown = Integer.parseInt(Utils.readLine(cool_down));
-            int chargingLimit = Integer.parseInt(Utils.readLine(charging_enabled));
+            int chargingLimit = Integer.parseInt(Utils.readLine(input_suspend));
             if (Debug) Log.d("DeviceSettings", "Battery Temperature: " + battTemp + ", Battery Capacity: " +battCap +"%" );
 
             // Cool Down based on battery temperature
@@ -120,11 +120,11 @@ public class SmartChargingService extends Service {
             // Charging limit based on user selected battery percentage 
             if (((SeekBarPreference.getProgress() == battCap) || (SeekBarPreference.getProgress() < battCap)) && chargingLimit != 0) {
                 //Utils.writeValue(cool_down, "0");
-                Utils.writeValue(charging_enabled, "0");
+                Utils.writeValue(input_suspend, "0");
                 Log.d("DeviceSettings", "Battery Temperature: " + battTemp + ", Battery Capacity: " +battCap+"%, " +"User selected charging limit: "+SeekBarPreference.getProgress()+"% . Stopped charging");
             }
             else if (SeekBarPreference.getProgress() > battCap && chargingLimit != 1) {
-                Utils.writeValue(charging_enabled, "1");
+                Utils.writeValue(input_suspend, "1");
                 Log.d("DeviceSettings", "Charging...");
             }
         }
