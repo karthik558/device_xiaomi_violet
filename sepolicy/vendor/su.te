@@ -1,0 +1,2 @@
+allow su vendor_file:file { entrypoint };
+allow su shell_exec:file { execute  getattr  read };
