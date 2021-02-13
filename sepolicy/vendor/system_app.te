@@ -18,6 +18,10 @@ allow system_app vibrator_dev:file rw_file_perms;
 allow system_app sysfs_leds:dir search;
 allow system_app sysfs_leds:file { open getattr write };
 allow system_app sysfs_tbrightness:file { open getattr write };
+allow system_app sysfs_vibrator:dir search;
+allow system_app sysfs_vibrator:file { read write };
+allow system_app sysfs_vibrator:file open;
+allow system_app sysfs_vibrator:file getattr;
 
 get_prop(system_app, vendor_default_prop)
 
