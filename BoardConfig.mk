@@ -76,7 +76,7 @@ TARGET_USES_DRM_PP := true
 TARGET_USES_HWC2 := true
 
 # Display density
-TARGET_SCREEN_DENSITY := 440
+TARGET_SCREEN_DENSITY := 410 ## smallest width 421dp
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
