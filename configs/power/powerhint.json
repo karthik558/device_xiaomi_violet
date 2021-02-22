@@ -16,6 +16,7 @@
       "Values": [
         "9999999",
         "1363200",
+        "1017600",
         "576000"
       ],
       "ResetOnInit": true
@@ -251,7 +252,8 @@
       "Path": "/dev/cpuset/foreground/cpus",
       "Values": [
         "0-5",
-        "0-5,7"
+        "0-5,7",
+        "0-7"
       ],
       "ResetOnInit": true
     },
@@ -392,8 +394,8 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 1,
-      "Value": "1363200"
+      "Duration": 100,
+      "Value": "1017600"
     },
     {
       "PowerHint": "INTERACTION",
@@ -428,20 +430,20 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
-      "Duration": 0,
+      "Duration": 100,
       "Value": "9155"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "LLCCBWMinFreq",
-      "Duration": 0,
+      "Duration": 100,
       "Value": "2597"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "ForegroundCpuset",
       "Duration": 5000,
-      "Value": "0-5"
+      "Value": "0-7"
     },
     {
       "PowerHint": "LAUNCH",
