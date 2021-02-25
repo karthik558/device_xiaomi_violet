@@ -41,6 +41,38 @@ on init
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
 
+on early-init
+    # Boot time fs tuning
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/scheduler cfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/sde/queue/iostats 0
+    write /sys/block/sde/queue/scheduler cfq
+    write /sys/block/sde/queue/iosched/slice_idle 0
+    write /sys/block/sde/queue/read_ahead_kb 2048
+    write /sys/block/sde/queue/nr_requests 256
+    write /sys/block/sdf/queue/iostats 0
+    write /sys/block/sdf/queue/scheduler cfq
+    write /sys/block/sdf/queue/iosched/slice_idle 0
+    write /sys/block/sdf/queue/read_ahead_kb 2048
+    write /sys/block/sdf/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+    write /sys/block/dm-2/queue/read_ahead_kb 2048
+    write /sys/block/dm-3/queue/read_ahead_kb 2048
+
+on late-init
+    # Runtime fs tuning
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/sde/queue/nr_requests 128
+    write /sys/block/sdf/queue/nr_requests 128
+
+    # Block layer tuning: discard chunk size up to 128MB
+    # Otherwise, contiguous discards can be merged
+    write /sys/block/sda/queue/discard_max_bytes 134217728
+
 on fs
     mount_all --early
 
