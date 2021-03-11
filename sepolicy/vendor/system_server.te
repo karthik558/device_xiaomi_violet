@@ -3,3 +3,5 @@ allow system_server kcal_dev:dir r_dir_perms;
 
 # Smart charger
 allow system_server sysfs_battery_supply:file rw_file_perms;
+
+allow system_server default_android_service:service_manager { add };
