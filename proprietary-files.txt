@@ -620,9 +620,7 @@ vendor/firmware/ipa_fws.elf
 vendor/firmware/ipa_fws.mdt
 
 # Keymaster - from mojito-user 11 RKQ1.201022.002 V12.0.2.0.RKGEUXM release-keys
-vendor/bin/hw/android.hardware.keymaster@3.0-service-qti|cce8913b8bdbdf0e50f5fdecd47823a11330534b
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti|2eedb6b2c2e0bcb54d0aae1e19ccfa2c8fc0f116
-vendor/bin/hw/android.hardware.keymaster@4.1-service-qti|1cc01cb20909ae1a2f829056b098051d93cb4093
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc|c8999fb1bccbef81e6b362059e9a6ebd023de98f
 vendor/lib64/libkeymasterdeviceutils.so|323603c6199f2cb3d15883c625bae7cd1d039f81
 vendor/lib64/libkeymasterutils.so|db21b2fec8e5808c562665746d0394575004070b
