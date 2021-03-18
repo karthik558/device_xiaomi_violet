@@ -564,4 +564,7 @@
          manually by the user. Off by default, since the expected haptic feedback may not be
          available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
+
+     <!-- Whether we have a multi coloured battery LED or not -->
+    <bool name="config_multiColorBatteryLed">false</bool>
 </resources>
