@@ -377,6 +377,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librecovery_updater_xiaomi
 
+# Sounds (default)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.config.ringtone=Crackle.ogg \
+    ro.config.notification_sound=None.ogg \
+    ro.config.alarm_alert=Full_of_Wonder.ogg
+
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
