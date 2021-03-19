@@ -390,6 +390,12 @@ PRODUCT_PACKAGES += \
 # Reduce system image size by limiting java debug info.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
+# Sounds (default)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.config.ringtone=Crackle.ogg \
+    ro.config.notification_sound=None.ogg \
+    ro.config.alarm_alert=Full_of_Wonder.ogg
+
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
