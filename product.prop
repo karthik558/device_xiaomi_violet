@@ -54,6 +54,10 @@ ro.incremental.enable=1
 # LMKD
 ro.config.low_ram=false
 
+# Iorap
+iorapd.perfetto.enable=true
+iorapd.readahead.enable=true
+
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.media.recorder-max-base-layer-fps=60
