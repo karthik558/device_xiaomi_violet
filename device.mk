@@ -462,15 +462,13 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
 
 #VioletParts init
 PRODUCT_PACKAGES += \
     init.violetparts.sh \
     init.violetparts.rc
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
 # Xiaomi Doze
 PRODUCT_PACKAGES += \
