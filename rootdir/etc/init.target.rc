@@ -108,7 +108,7 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/up_rate_limit_us 0
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/down_rate_limit_us 0
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq 1209600
-    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 652800
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 768000
 
     # sched_load_boost as -6 is equivalent to target load as 85. It is per cpu tunable.
     write /sys/devices/system/cpu/cpu6/sched_load_boost -6
