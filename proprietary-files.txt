@@ -504,8 +504,6 @@ vendor/bin/loc_launcher|c9a2f764201ee679c29463f405abd9625c421afc
 vendor/bin/lowi-server|ce643dd4cf5ba00396443f9584ea2ef4abeec437
 vendor/bin/slim_daemon|45eb4a1bff20d00ffa30a5695f23b919432c0f67
 vendor/bin/xtra-daemon|dc183e108ccdaf69160eb73c0ce52afa3f6864c3
-vendor/bin/xtwifi-client|e83c6310c668293d8594ae6b1bad6cc165ea6472
-vendor/bin/xtwifi-inet-agent|f805841e5c8ca3b0af620486a64a37148daa0980
 vendor/etc/cacert_location.pem|0789bf799c7e45d352a83e2f79ddb0cea86db85b
 -vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml|6514b13f55abc0acc28e004c35ff93fb972d61a9
 vendor/etc/xtra_root_cert.pem|f55a31ec4d9cf8ce2724acadecf00c779f8767db
