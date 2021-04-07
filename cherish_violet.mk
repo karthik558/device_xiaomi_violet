@@ -26,13 +26,13 @@ TARGET_USES_FACE_UNLOCK := true
 PRODUCT_GENERIC_PROPERTIES += \
     ro.cherish.maintainer=K A R T H I K
 
-BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ2A.210305.007/7124944:user/release-keys"
+BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="redfin-user 11 RQ2A.210305.007 7124944 release-keys" \
+    PRIVATE_BUILD_DESC="redfin-user 11 RQ2A.210405.005 7181113 release-keys" \
     PRODUCT_NAME="violet"
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/redfin/redfin:11/RQ2A.210305.007/7124944:user/release-keys
+    ro.build.fingerprint=google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
