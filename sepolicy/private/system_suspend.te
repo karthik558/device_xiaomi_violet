@@ -1,2 +1,7 @@
 # To resolve arbitrary sysfs paths from /sys/class/wakeup/* symlinks.
 allow system_suspend sysfs_type:dir r_dir_perms;
+allow system_suspend sysfs:dir { read };
+allow system_suspend sysfs:dir { open };
+allow system_suspend vendor_sysfs_usb_supply:dir { read };
+allow system_suspend vendor_sysfs_usbpd_device:dir { read };
+allow system_suspend vendor_sysfs_battery_supply:dir { read };
