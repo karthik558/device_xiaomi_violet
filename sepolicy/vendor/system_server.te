@@ -1,3 +1,6 @@
 allow system_server kcal_dev:file rw_file_perms;
 allow system_server kcal_dev:dir r_dir_perms;
 allow system_server default_android_service:service_manager { add };
+
+#AppLock
+allow system_server default_android_service:service_manager { add };
