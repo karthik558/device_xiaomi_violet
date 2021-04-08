@@ -6,3 +6,6 @@ allow platform_app sysfs_kgsl:file { getattr open read };
 
 # Torch
 allow platform_app sysfs_leds:dir search;
+
+#App-Lock
+allow platform_app default_android_service:service_manager { find };

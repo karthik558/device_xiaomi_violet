@@ -8,3 +8,6 @@ allow system_server default_android_service:service_manager { add };
 
 # Smart Charging
 allow system_server sysfs_battery_supply:file { getattr open read write };
+
+#AppLock
+allow system_server default_android_service:service_manager { add };
