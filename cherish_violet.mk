@@ -24,7 +24,7 @@ CHERISH_BUILD_TYPE=OFFICIAL
 CHERISH_WITHGAPPS=true
 TARGET_USES_FACE_UNLOCK := true
 PRODUCT_GENERIC_PROPERTIES += \
-    ro.cherish.maintainer=K A R T H I K
+    ro.cherish.maintainer=KARTHIK
 
 BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys"
 
