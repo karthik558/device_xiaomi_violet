@@ -23,6 +23,10 @@ ro.com.google.ime.kb_pad_port_b=1
 # LMKD
 ro.config.low_ram=false
 
+# Iorap
+iorapd.perfetto.enable=true
+iorapd.readahead.enable=true
+
 # Media
 media.aac_51_output_enabled=true
 media.stagefright.enable-aac=true
