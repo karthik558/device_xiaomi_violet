@@ -953,9 +953,6 @@ vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc|76447a61ad5529949365eeb
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so|1b04b9aca3b02e3bf5c7ab996a2a14d1890e5f94
 vendor/lib64/vendor.qti.hardware.soter@1.0.so|9424d8a625bbc9e399597ecb0ac80402fae7782c
 
-# Thermal - from mojito-user 11 RKQ1.201022.002 V12.0.2.0.RKGEUXM release-keys
-vendor/lib64/libthermalclient.so|8f2411404f56c6d15e6a185124bbc7f8c2adf195
-
 # Thermal
 vendor/bin/thermal-engine
 vendor/etc/thermal-engine.conf
@@ -965,6 +962,7 @@ vendor/etc/thermal-engine-normal.conf
 vendor/etc/thermal-engine-studio.conf
 vendor/etc/thermal-engine-tgame.conf
 vendor/lib64/libthermalfeature.so
+vendor/lib64/libthermalclient.so
 
 # Time - from mojito-user 11 RKQ1.201022.002 V12.0.2.0.RKGEUXM release-keys
 -vendor/app/TimeService/TimeService.apk|7d176a69b270006a511a3c30f544db98a0ccaa37
