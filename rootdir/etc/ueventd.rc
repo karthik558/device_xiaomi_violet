@@ -101,9 +101,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/msm_rtac             0660   system     audio
 /dev/avtimer              0660   system     audio
 
-# NFC permissions
-/dev/nq-nci               0660    nfc         nfc
-
 # UIO devices
 /dev/uio0                 0660   system     system
 
