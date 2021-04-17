@@ -24,8 +24,5 @@ ro.product.system.manufacturer          u:object_r:exported2_default_prop:s0
 # Sensors
 persist.sensor.                    u:object_r:persist_sensors_prop:s0
 
-# Touchfeature
-ro.vendor.touchfeature.type        u:object_r:vendor_touchfeature_prop:s0
-
 # Xiaomi thermal daemon
 vendor.sys.thermal.                u:object_r:vendor_thermal_normal_prop:s0
