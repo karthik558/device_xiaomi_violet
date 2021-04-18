@@ -2,3 +2,4 @@
 allow system_suspend sysfs_type:dir r_dir_perms;
 allow system_suspend sysfs:dir { read };
 allow system_suspend sysfs:dir { open };
+allow system_suspend sysfs_rtc:dir read;
