@@ -1,1 +1,4 @@
 allow init su:process { noatsecure  rlimitinh  siginh  transition };
+allow init rootfs:file execute_no_trans;
+allow init sysfs:file write;
+allow init sysfs_devices_system_cpu:file write;
