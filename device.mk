@@ -379,9 +379,9 @@ PRODUCT_PACKAGES += \
 
 # Sounds (default)
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.ringtone=Crackle.ogg \
-    ro.config.notification_sound=None.ogg \
-    ro.config.alarm_alert=Full_of_Wonder.ogg
+    ro.config.ringtone=The_big_adventure.ogg \
+    ro.config.notification_sound=Popcorn.ogg \
+    ro.config.alarm_alert=Bright_morning.ogg
 
 # RCS
 PRODUCT_PACKAGES += \
