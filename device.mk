@@ -217,6 +217,20 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+# Telephony packages we dont have ims here but we need those libs
+# to avoid crashes
+PRODUCT_PACKAGES += \
+    telephony-ext \
+    ims-ext-common \
+    services-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
+# IMS
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager
+    
 # HIDL
 PRODUCT_PACKAGES += \
     libhidltransport.vendor \
