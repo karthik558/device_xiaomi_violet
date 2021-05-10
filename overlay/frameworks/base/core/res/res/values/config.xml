@@ -536,6 +536,9 @@
 
     <!-- Corner radius of system progress bars -->
     <dimen name="config_progressBarCornerRadius">1000.0dip</dimen>
+
+    <!-- The max scale for the wallpaper when it's zoomed in -->
+    <item name="config_wallpaperMaxScale" format="float" type="dimen">1.00</item>
     
     <!-- Controls the navigation bar interaction mode:
          0: 3 button mode (back, home, overview buttons)
