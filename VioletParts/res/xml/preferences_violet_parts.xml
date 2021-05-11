@@ -37,7 +37,7 @@
     <intent 
 
           android:action="android.intent.action.VIEW"
-          android:data="ah shit i will update soon" />
+          android:data="https://telegra.ph/All-my-works-05-11" />
 </Preference>
 
        <PreferenceCategory
