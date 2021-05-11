@@ -1,9 +1,9 @@
 [
    {
-      "remote":"Cygnus-devices",
-      "repository":"device_xiaomi_violet",
+      "remote":"karthik558",
+      "repository":"R_device_xiaomi_violet",
       "target_path":"device/xiaomi/violet",
-      "branch":"caf-11"
+      "branch":"11-Rebase-Rohie"
    },
    {
       "remote":"Cygnus-devices",
@@ -12,10 +12,10 @@
       "branch":"caf-11"
    },
    {
-      "remote":"Cygnus-devices",
-      "repository":"vendor_xiaomi_violet",
+      "remote":"karthik558",
+      "repository":"R_vendor_xiaomi_violet",
       "target_path":"vendor/xiaomi/violet",
-      "branch":"caf-11"
+      "branch":"11-Rebase-Rohie"
    },
    {
       "remote":"Cygnus-devices",
