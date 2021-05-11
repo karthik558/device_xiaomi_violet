@@ -21,13 +21,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common CygnusOS stuff.
-CYGNUS_BUILD_TYPE := OFFICIAL
+# Inherit some common RohieOS stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
-WITH_GAPPS := true
-$(call inherit-product, vendor/cygnus/configs/common.mk)
+$(call inherit-product, vendor/aosp/config/common.mk)
 
-PRODUCT_NAME := cygnus_violet
+PRODUCT_NAME := aosp_violet
 PRODUCT_DEVICE := violet
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 7 Pro

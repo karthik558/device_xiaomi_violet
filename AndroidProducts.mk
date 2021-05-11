@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/cygnus_violet.mk
+    $(LOCAL_DIR)/aosp_violet.mk
 
 COMMON_LUNCH_CHOICES := \
-    cygnus_violet-user \
-    cygnus_violet-userdebug \
-    cygnus_violet-eng
+    aosp_violet-user \
+    aosp_violet-userdebug \
+    aosp_violet-eng
