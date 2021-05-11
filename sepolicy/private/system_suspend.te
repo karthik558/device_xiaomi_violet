@@ -4,3 +4,5 @@ allow system_suspend sysfs:dir { read };
 allow system_suspend sysfs:dir { open };
 allow system_suspend sysfs_rtc:dir open;
 allow system_suspend sysfs_rtc:dir read;
+allow system_suspend sysfs:file {open getattr read};
+allow system_suspend sysfs:dir {read open};
