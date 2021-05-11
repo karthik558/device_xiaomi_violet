@@ -185,4 +185,7 @@
     <string name="reset_stats_title">Reset battery stats</string>
     <string name="reset_stats_summary">Battery stats will get reset when charging limit is reached</string>
 
+    <!-- End Profiles -->
+    <string name="end_explanation"></string>                             
+    <string name="end_explanation_summary"><b>If you like my works:</b> take a cup of <a href="coffe">coffe</a></string>
 </resources>
