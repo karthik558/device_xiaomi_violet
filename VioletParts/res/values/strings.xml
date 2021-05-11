@@ -21,7 +21,7 @@
 
     <!-- Intro Profiles -->
     <string name="intro_explanation"></string>
-    <string name="intro_explanation_summary"><b>\nMy telegram:</b> <a href="https://t.me/karthik558"> <b>\nMy website:</b> <a href="https://karthik558.github.io"> <b>\nMy github:</b> <a href="https://github.com/karthik558"> https://github.com/karthik558 </a> \n \n - Thanks to everyone for using my rom/kernel :-)! \n</string>
+    <string name="intro_explanation_summary"><b>\nMy telegram:</b> https://t.me/karthik558 <b>\nMy website:</b> https://karthik558.github.io <b>\nMy github:</b> <a href="https://github.com/karthik558"> https://github.com/karthik558 </a> \n \n - Thanks to everyone for using my rom/kernel :-)! \n</string>
 
     <string name="roms">Click to see my works</string>
     <string name="roms_summary">Kernels,Roms and Someother tools </string>
