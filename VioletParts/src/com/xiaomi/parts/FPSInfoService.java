@@ -90,26 +90,26 @@ public class FPSInfoService extends Service {
         FPSView(Context c) {
             super(c);
             float density = c.getResources().getDisplayMetrics().density;
-            int paddingPx = Math.round(5 * density);
+            int paddingPx = Math.round(10 * density);
             setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
             setBackgroundColor(Color.argb(0x0, 0, 0, 0));
 
-            final int textSize = Math.round(17 * density);
+            final int textSize = Math.round(20 * density);
 
-            Typeface typeface = Typeface.create("monospace", Typeface.NORMAL);
+            Typeface typeface = Typeface.create("google-sans", Typeface.NORMAL);
 
             mOnlinePaint = new Paint();
             mOnlinePaint.setTypeface(typeface);
             mOnlinePaint.setAntiAlias(true);
             mOnlinePaint.setTextSize(textSize);
-            mOnlinePaint.setColor(Color.WHITE);
-            mOnlinePaint.setShadowLayer(8.0f, 0.0f, 0.0f, Color.BLACK);
+            mOnlinePaint.setColor(Color.YELLOW);
+            mOnlinePaint.setShadowLayer(5.0f, 0.0f, 0.0f, Color.BLACK);
 
             mAscent = mOnlinePaint.ascent();
             float descent = mOnlinePaint.descent();
             mFH = (int)(descent - mAscent + .5f);
 
-            final String maxWidthStr="fps: 66.1";
+            final String maxWidthStr="fps: 60.1";
             mMaxWidth = (int)mOnlinePaint.measureText(maxWidthStr);
 
             updateDisplay();
@@ -163,7 +163,7 @@ public class FPSInfoService extends Service {
                 return;
             }
 
-            int neededWidth = mPaddingLeft + mPaddingRight + mMaxWidth;
+            int neededWidth = mPaddingLeft + mPaddingRight + mMaxWidth + 40;
             int neededHeight = mPaddingTop + mPaddingBottom + 40;
             if (neededWidth != mNeededWidth || neededHeight != mNeededHeight) {
                 mNeededWidth = neededWidth;
