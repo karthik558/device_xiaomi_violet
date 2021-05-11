@@ -19,6 +19,13 @@
 
     <string name="display_title">Display</string>
 
+    <!-- Intro Profiles -->
+    <string name="intro_explanation"></string>
+    <string name="intro_explanation_summary"><b>\nMy telegram:</b> karthik558  <b>\nMy github:</b> <a href="https://github.com/karthik558"> https://github.com/karthik558 </a> \n \n - Thanks to everyone for using my rom/kernel :-)! \n</string>
+
+    <string name="roms">Push to see all my roms and kernel</string>
+    <string name="roms_summary">Android 10 and 11 </string>
+
     <!-- KCal -->
     <string name="device_kcal_title">Display Color Calibration</string>
     <string name="kcal_enabled_summary">Calibrate Display Using KCAL</string>
