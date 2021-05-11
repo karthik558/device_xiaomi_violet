@@ -254,10 +254,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-qti \
     android.hardware.health@2.1-service
 
-# Google Apps permissions (TODO: Remove these)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google-fix.xml
-
 # HIDL
 PRODUCT_PACKAGES += \
     libhidltransport \
