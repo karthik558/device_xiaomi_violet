@@ -6,10 +6,10 @@
       "branch":"11-Rebase-Rohie"
    },
    {
-      "remote":"Cygnus-devices",
-      "repository":"kernel_xiaomi_violet",
+      "remote":"karthik558",
+      "repository":"MsM-4.14-SmoothAF",
       "target_path":"kernel/xiaomi/violet",
-      "branch":"caf-11"
+      "branch":"eleven-caf"
    },
    {
       "remote":"karthik558",
@@ -42,4 +42,3 @@
       "branch":"caf-11-sm8150"
    }
 ]
-
