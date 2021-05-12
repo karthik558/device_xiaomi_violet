@@ -1,2 +1,4 @@
 # Allow system_server to set persist_camera_prop
 get_prop(system_server, vendor_persist_camera_prop)
+
+allow system_server default_android_service:service_manager { add };
