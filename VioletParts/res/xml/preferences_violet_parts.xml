@@ -19,6 +19,26 @@
     <Preference
         android:key="header"
         android:layout="@layout/header_animation" />
+
+    <Preference
+          android:persistent="false"
+          android:title="@string/intro_explanation"  
+          android:summary="@string/intro_explanation_summary" 
+          android:id="@+id/intro_explanation_summary"
+          android:autoLink="web"> 
+    <intent 
+          android:action="android.intent.action.VIEW"
+          android:data="https://github.com/karthik558" />
+    </Preference>   
+    <Preference 
+          android:title="@string/roms" 
+          android:summary="@string/roms_summary" 
+          android:icon="@drawable/ic_roms_kernels">
+    <intent 
+
+          android:action="android.intent.action.VIEW"
+          android:data="ah shit i will update soon" />
+</Preference>
     
     <PreferenceCategory
         android:key="display"
