@@ -120,5 +120,9 @@
             app:min="1"
             app:units="%" />
     </PreferenceCategory>
+       <PreferenceCategory
+        android:key="end"
+        android:layout="@layout/end_animation" >
+    </PreferenceCategory>
 
 </PreferenceScreen>
