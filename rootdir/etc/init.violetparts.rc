@@ -3,10 +3,6 @@ on boot
 # USB Fastcharge
   chown system system /sys/kernel/fast_charge/force_fast_charge
   chmod 0660 /sys/kernel/fast_charge/force_fast_charge
-
-# Vibration
-    chown system system /sys/class/leds/vibrator/vtg_level
-    chmod 0660 /sys/class/leds/vibrator/vtg_level
   
 # FPS Info permissions
   chown system graphics /sys/class/drm/sde-crtc-0/measured_fps

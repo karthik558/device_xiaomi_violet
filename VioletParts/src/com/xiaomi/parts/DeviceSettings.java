@@ -32,7 +32,6 @@ import android.util.Log;
 
 import com.xiaomi.parts.kcal.KCalSettingsActivity;
 import com.xiaomi.parts.speaker.ClearSpeakerActivity;
-import com.xiaomi.parts.preferences.VibrationSeekBarPreference;
 import com.xiaomi.parts.preferences.CustomSeekBarPreference;
 import com.xiaomi.parts.preferences.SecureSettingListPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
@@ -56,14 +55,6 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String PREF_KEY_FPS_INFO = "fps_info";
 
     private static final String PREF_CLEAR_SPEAKER = "clear_speaker_settings";
-
-    public static final String CATEGORY_VIBRATOR = "vibration";
-    public static final String PREF_VIBRATION_STRENGTH = "vibration_strength";
-    public static final String VIBRATION_STRENGTH_PATH = "/sys/class/leds/vibrator/vtg_level";
-
-    // value of vtg_min and vtg_max
-    public static final int MIN_VIBRATION = 116;
-    public static final int MAX_VIBRATION = 3596;
 
     private Preference mKcal;
     private SecureSettingSwitchPreference mFastcharge;
@@ -137,11 +128,6 @@ public class DeviceSettings extends PreferenceFragment implements
         SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);
         fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));
         fpsInfo.setOnPreferenceChangeListener(this);
-
-        if (FileUtils.fileWritable(VIBRATION_STRENGTH_PATH)) {
-            VibrationSeekBarPreference vibrationStrength = (VibrationSeekBarPreference) findPreference(PREF_VIBRATION_STRENGTH);
-            vibrationStrength.setOnPreferenceChangeListener(this);
-        } else { getPreferenceScreen().removePreference(findPreference(CATEGORY_VIBRATOR)); }
     }
 
 
@@ -176,7 +162,7 @@ public class DeviceSettings extends PreferenceFragment implements
                     DiracService.sDiracUtils.setLevel(String.valueOf(value));
                 }
                 break;
-                
+
             case PREF_KEY_FPS_INFO:
                 boolean enabled = (Boolean) value;
                 Intent fpsinfo = new Intent(this.getContext(), FPSInfoService.class);
@@ -185,11 +171,6 @@ public class DeviceSettings extends PreferenceFragment implements
                 } else {
                     this.getContext().stopService(fpsinfo);
                 }
-                break;
-
-                case PREF_VIBRATION_STRENGTH:
-                double vibrationValue = (int) value / 100.0 * (MAX_VIBRATION - MIN_VIBRATION) + MIN_VIBRATION;
-                FileUtils.setValue(VIBRATION_STRENGTH_PATH, vibrationValue);
                 break;
 
             default:
