@@ -20,8 +20,6 @@
         android:key="header"
         android:layout="@layout/header_animation" />
 
-    </Preference>
-
        <PreferenceCategory
         android:key="display"
         android:title="@string/display_title">
