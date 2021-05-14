@@ -19,13 +19,6 @@
 
     <string name="display_title">Display</string>
 
-    <!-- Intro Profiles -->
-    <string name="intro_explanation"></string>
-    <string name="intro_explanation_summary"><b>\nMy telegram:</b> https://t.me/karthik558 <b>\nMy website:</b> https://karthik558.github.io <b>\nMy github:</b> <a href="https://github.com/karthik558"> https://github.com/karthik558 </a> \n \n - Thanks to everyone for using my rom/kernel :-)! \n</string>
-
-    <string name="roms">Click to see my works</string>
-    <string name="roms_summary">Kernels,Roms and Someother tools </string>
-
     <!-- KCal -->
     <string name="device_kcal_title">Display Color Calibration</string>
     <string name="kcal_enabled_summary">Calibrate Display Using KCAL</string>

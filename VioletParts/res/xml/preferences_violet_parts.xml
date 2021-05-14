@@ -20,27 +20,9 @@
         android:key="header"
         android:layout="@layout/header_animation" />
 
-    <Preference
-          android:persistent="false"
-          android:title="@string/intro_explanation"  
-          android:summary="@string/intro_explanation_summary" 
-          android:id="@+id/intro_explanation_summary"
-          android:autoLink="web"> 
-    <intent 
-          android:action="android.intent.action.VIEW"
-          android:data="https://github.com/karthik558" />
-    </Preference>   
-    <Preference 
-          android:title="@string/roms" 
-          android:summary="@string/roms_summary" 
-          android:icon="@drawable/ic_roms_kernels">
-    <intent 
+    </Preference>
 
-          android:action="android.intent.action.VIEW"
-          android:data="https://telegra.ph/All-my-works-05-11" />
-</Preference>
-    
-    <PreferenceCategory
+       <PreferenceCategory
         android:key="display"
         android:title="@string/display_title">
 
