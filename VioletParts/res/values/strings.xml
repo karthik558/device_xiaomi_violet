@@ -177,13 +177,6 @@
     <!-- Torch Brightness -->
     <string name="torch_title">Torch</string>
     <string name="torch_brightness_title">Brightness</string>
-   
-    <!-- Charging -->
-    <string name="smart_charging_main_title">Battery</string>
-    <string name="smart_charging_title">Smart Charging</string>
-    <string name="smart_charging_summary">Helps in cooling down &amp; also protects from over charging the device</string>
-    <string name="reset_stats_title">Reset battery stats</string>
-    <string name="reset_stats_summary">Battery stats will get reset when charging limit is reached</string>
 
     <!-- End Profiles -->
     <string name="end_explanation"></string>                             
