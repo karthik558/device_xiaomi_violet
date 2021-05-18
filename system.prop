@@ -75,14 +75,13 @@ persist.sys.sf.disable_blurs=1
 ro.sf.blurs_are_expensive=1
 
 # Gboard
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.ime.kb_pad_port_l=7 \
-    ro.com.google.ime.kb_pad_port_r=7 \
-    ro.com.google.ime.kb_pad_land_l=14 \
-    ro.com.google.ime.kb_pad_land_r=14 \
-    ro.com.google.ime.kb_pad_port_b=1 \
-    ro.com.google.ime.corner_key_r=32 \
-    ro.opa.eligible_device=true \
-    ro.com.google.ime.theme_id=5 \
-    ro.com.google.ime.bs_theme=true \
-    ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
+ro.com.google.ime.kb_pad_port_l=7
+ro.com.google.ime.kb_pad_port_r=7
+ro.com.google.ime.kb_pad_land_l=14
+ro.com.google.ime.kb_pad_land_r=14
+ro.com.google.ime.kb_pad_port_b=1
+ro.com.google.ime.corner_key_r=32
+ro.opa.eligible_device=true
+ro.com.google.ime.theme_id=5
+ro.com.google.ime.bs_theme=true
+ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
