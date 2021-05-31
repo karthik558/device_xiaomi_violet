@@ -26,7 +26,6 @@ import android.os.SELinux;
 import android.util.Log;
 import android.widget.Toast;
 import android.text.TextUtils;
-import com.xiaomi.parts.DiracUtils;
 import com.xiaomi.parts.R;
 
 import com.xiaomi.parts.kcal.Utils;
@@ -68,8 +67,6 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         FileUtils.setValue(DeviceSettings.USB_FASTCHARGE_PATH, Settings.Secure.getInt(context.getContentResolver(),
                 DeviceSettings.PREF_USB_FASTCHARGE, 0));
 
-       	// Dirac
-        context.startService(new Intent(context, DiracService.class));
     }
 
 }
