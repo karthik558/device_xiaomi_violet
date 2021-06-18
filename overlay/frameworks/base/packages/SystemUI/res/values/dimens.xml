@@ -18,8 +18,11 @@
     <!-- the padding on the top of the statusbar (usually 0) -->
     <dimen name="status_bar_padding_top">1dp</dimen>
 
+    <!-- for 20dp of padding at 2.75px/dp at default density -->
+    <dimen name="rounded_corner_content_padding">36px</dimen>
+
     <!-- Margin start of the system icons super container -->
-    <dimen name="system_icons_super_container_avatarless_margin_end">33px</dimen>
+    <dimen name="system_icons_super_container_avatarless_margin_end">56px</dimen>
 
     <!-- end margin for multi user switch in collapsed quick settings -->
     <dimen name="multi_user_switch_keyguard_margin">22px</dimen>
