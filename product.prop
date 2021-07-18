@@ -104,3 +104,22 @@ ro.config.sdha_apps_bg_min=8
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.octavi.status=2.7 Official
 ro.octavi.maintainer=K A R T H I K
+
+# Touch improvements
+touch.pressure.scale=0.001 
+persist.sys.ui.hw=1 
+view.scroll_friction=10 
+touch.size.calibration=diameter 
+touch.size.scale=1 
+touch.size.bias=0 
+touch.size.isSummed=0 
+touch.pressure.scale=0.001 
+touch.orientation.calibration=none 
+touch.distance.calibration=none 
+touch.distance.scale=0 
+touch.coverage.calibration=box 
+touch.gestureMode=spots 
+MultitouchSettleInterval=1ms 
+MultitouchMinDistance=1px 
+TapInterval=1ms 
+TapSlop=1px
