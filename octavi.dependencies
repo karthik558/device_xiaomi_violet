@@ -9,7 +9,7 @@
     "remote": "karthik558"
     "repository": "R_device_xiaomi_violet",
     "target_path": "device/xiaomi/violet"
-    "branch": "11-R"
+    "branch": "R-Octavi"
   },
   {
     "remote": "karthik558"
@@ -24,19 +24,19 @@
     "branch": "master"
   },
   {
-    "remote": "ArrowOS",
+    "remote": "mrjarvis698",
     "repository": "android_hardware_qcom_audio",
     "target_path": "hardware/qcom-caf/sm8150/audio",
     "branch": "arrow-11.0-caf-sm8150"
   },
   {
-    "remote": "ArrowOS",
-    "repository": "android_hardware_qcom_display",
+    "remote": "mrjarvis698",
+    "repository": "platform_hardware_qcom_display",
     "target_path": "hardware/qcom-caf/sm8150/display",
-    "branch": "arrow-11.0-caf-sm8150"
+    "branch": "11-caf-sm8150-octavi"
   },
   {
-    "remote": "ArrowOS",
+    "remote": "mrjarvis698",
     "repository": "android_hardware_qcom_media",
     "target_path": "hardware/qcom-caf/sm8150/media",
     "branch": "arrow-11.0-caf-sm8150"
