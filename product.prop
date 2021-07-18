@@ -73,3 +73,8 @@ persist.device_config.runtime_native.usap_pool_enabled=true
 
 # Boot
 sys.vendor.shutdown.waittime=500
+
+# Octavi
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.octavi.status=2.7 OFFICIAL
+ro.octavi.maintainer=K A R T H I K
