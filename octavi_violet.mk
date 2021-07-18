@@ -7,24 +7,23 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common CherishOS stuff.
-$(call inherit-product, vendor/cherish/config/common.mk)
+# Inherit some common Octavi-OS stuff.
+$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
+
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := cherish_violet
+PRODUCT_NAME := octavi_violet
 PRODUCT_DEVICE := violet
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 7 Pro
 PRODUCT_MANUFACTURER := Xiaomi
 
-#CHERISH
-CHERISH_BUILD_TYPE=OFFICIAL
-CHERISH_WITHGAPPS=true
-TARGET_USES_FACE_UNLOCK := true
-PRODUCT_GENERIC_PROPERTIES += \
-    ro.cherish.maintainer=KARTHIK
+#OCTAVI_STUFFS
+OCTAVI_BUILD_TYPE=Official
+TARGET_FACE_UNLOCK_SUPPORTED := true
+OCTAVI_DEVICE_MAINTAINER := KARTHIK.LAL
 
 BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ3A.210705.001/7380771:user/release-keys"
 
