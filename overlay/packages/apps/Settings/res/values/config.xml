@@ -20,4 +20,10 @@
 
     <!-- Device specific doze package -->
     <string name="config_customDozePackage">org.lineageos.settings.doze/org.lineageos.settings.doze.DozeSettingsActivity</string>
+
+    <!-- FOD recognizing animation -->
+    <bool name="config_showFODAnimationSettings">false</bool>
+
+    <!-- ScreenOffFOD -->
+    <bool name="config_showScreenoffFOD">false</bool>
 </resources>
