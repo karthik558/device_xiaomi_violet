@@ -85,3 +85,22 @@ ro.opa.eligible_device=true
 ro.com.google.ime.theme_id=5
 ro.com.google.ime.bs_theme=true
 ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
+
+# Touch improvements
+touch.pressure.scale=0.001 
+persist.sys.ui.hw=1 
+view.scroll_friction=10 
+touch.size.calibration=diameter 
+touch.size.scale=1 
+touch.size.bias=0 
+touch.size.isSummed=0 
+touch.pressure.scale=0.001 
+touch.orientation.calibration=none 
+touch.distance.calibration=none 
+touch.distance.scale=0 
+touch.coverage.calibration=box 
+touch.gestureMode=spots 
+MultitouchSettleInterval=1ms 
+MultitouchMinDistance=1px 
+TapInterval=1ms 
+TapSlop=1px
