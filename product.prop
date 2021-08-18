@@ -66,6 +66,7 @@ persist.vendor.delta_time.enable=true
 # Wireless display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
+persist.sys.wfd.nohdcp=1
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
