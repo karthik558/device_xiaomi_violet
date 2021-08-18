@@ -135,3 +135,6 @@ MultitouchSettleInterval=1ms
 MultitouchMinDistance=1px 
 TapInterval=1ms 
 TapSlop=1px
+
+# Boot
+sys.vendor.shutdown.waittime=500
