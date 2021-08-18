@@ -70,3 +70,6 @@ persist.sys.wfd.nohdcp=1
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
+
+# Boot
+sys.vendor.shutdown.waittime=500
