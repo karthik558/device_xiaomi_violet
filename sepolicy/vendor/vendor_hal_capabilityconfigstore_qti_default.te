@@ -1,0 +1,2 @@
+# Allow vendor_hal_capabilityconfigstore_qti_default to read, open, map and get attributes in vendor_cap_configstore_dbg_prop
+allow vendor_hal_capabilityconfigstore_qti_default vendor_cap_configstore_dbg_prop:file { getattr map open read };
