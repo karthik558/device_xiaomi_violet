@@ -49,7 +49,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
 
 # Graphics
-debug.sf.latch_unsignaled=1
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
 ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.sm6150.api30
