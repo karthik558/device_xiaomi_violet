@@ -28,6 +28,7 @@ import android.os.SELinux;
 import android.util.Log;
 import android.widget.Toast;
 import android.text.TextUtils;
+import com.xiaomi.parts.DiracUtils;
 import com.xiaomi.parts.R;
 
 import com.xiaomi.parts.kcal.Utils;
@@ -75,7 +76,8 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         FileUtils.setValue(DeviceSettings.TORCH_2_BRIGHTNESS_PATH,
                 Settings.Secure.getInt(context.getContentResolver(),
                         DeviceSettings.PREF_TORCH_BRIGHTNESS, 150));
-
+	// Dirac
+        context.startService(new Intent(context, DiracService.class));
     }
 
 }
