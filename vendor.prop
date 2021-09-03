@@ -169,6 +169,7 @@ ro.vendor.use_data_netmgrd=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.perf.scroll_opt=true
 
 # RCS
 persist.rcs.supported=0
