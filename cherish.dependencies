@@ -17,28 +17,4 @@
     "target_path": "vendor/xiaomi/violet"
     "branch": "11-R"
   },
-  {
-    "remote": "gitlab/karthik5581",
-    "repository": "packages_apps_Gcam",
-    "target_path": "packages_apps_GCam",
-    "branch": "master"
-  },
-  {
-    "remote": "ArrowOS",
-    "repository": "android_hardware_qcom_audio",
-    "target_path": "hardware/qcom-caf/sm8150/audio",
-    "branch": "arrow-11.0-caf-sm8150"
-  },
-  {
-    "remote": "ArrowOS",
-    "repository": "android_hardware_qcom_display",
-    "target_path": "hardware/qcom-caf/sm8150/display",
-    "branch": "arrow-11.0-caf-sm8150"
-  },
-  {
-    "remote": "ArrowOS",
-    "repository": "android_hardware_qcom_media",
-    "target_path": "hardware/qcom-caf/sm8150/media",
-    "branch": "arrow-11.0-caf-sm8150"
-  },
 ]
