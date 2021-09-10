@@ -1,0 +1,2 @@
+# Torch
+allow platform_app sysfs_leds:dir search;
