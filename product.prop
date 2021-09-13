@@ -114,7 +114,7 @@ ro.config.sdha_apps_bg_min=8
 
 # Octavi
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.octavi.status=2.8 Official
+ro.octavi.status=2.9 OFFICIAL
 ro.octavi.maintainer=K A R T H I K
 
 # Touch improvements
