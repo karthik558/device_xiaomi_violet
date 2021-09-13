@@ -76,5 +76,5 @@ sys.vendor.shutdown.waittime=500
 
 # Octavi
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.octavi.status=2.7 OFFICIAL
+ro.octavi.status=2.9 OFFICIAL
 ro.octavi.maintainer=K A R T H I K
