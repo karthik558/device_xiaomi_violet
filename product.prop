@@ -78,3 +78,4 @@ sys.vendor.shutdown.waittime=500
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.octavi.status=2.9 OFFICIAL
 ro.octavi.maintainer=K A R T H I K
+dialer.supports.blur=true
