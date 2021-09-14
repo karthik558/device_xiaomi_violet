@@ -66,6 +66,7 @@ ro.config.low_ram=false
 ro.lmk.log_stats=true
 
 # Iorap
+ro.iorapd.enable=true
 iorapd.readahead.enable=true
 
 # Media
