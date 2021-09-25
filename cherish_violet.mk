@@ -12,6 +12,9 @@ $(call inherit-product, vendor/cherish/config/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 
+# Inherit ANX Camera
+$(call inherit-product, vendor/ANXCamera/config.mk)
+
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := cherish_violet
 PRODUCT_DEVICE := violet
