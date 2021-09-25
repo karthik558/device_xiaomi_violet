@@ -10,6 +10,9 @@ $(call inherit-product, device/xiaomi/violet/device.mk)
 # Inherit some common Octavi-OS stuff.
 $(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 
+# Inherit ANX Camera
+$(call inherit-product, vendor/ANXCamera/config.mk)
+
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
     
