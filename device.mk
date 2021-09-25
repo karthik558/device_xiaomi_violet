@@ -156,6 +156,7 @@ PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     libgui_vendor \
     libxml2 \
+    CameraGo \
     vendor.qti.hardware.camera.device@1.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -506,10 +507,3 @@ PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 # Force triple frame buffers
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
-
-#GCAM
-PRODUCT_PACKAGES += \
-    GoogleCamera
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/GCAM/system/etc/permissions/com.google.android.GoogleCameraEng.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.google.android.GoogleCameraEng.xml
