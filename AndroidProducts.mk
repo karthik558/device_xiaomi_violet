@@ -1,13 +1,13 @@
 #
-# Copyright (C) 2021 The Octavi-OS Project
+# Copyright (C) 2021 The Potato-OS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/octavi_violet.mk
+    $(LOCAL_DIR)/potato_violet.mk
 
 COMMON_LUNCH_CHOICES := \
-    octavi_violet-userdebug \
-    octavi_violet-user \
-    octavi_violet-eng
+    potato_violet-userdebug \
+    potato_violet-user \
+    potato_violet-eng
