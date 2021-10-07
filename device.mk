@@ -172,11 +172,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
 
-# Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiParts \
-    VioletParts
-
 # Display/Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4-service \
@@ -459,15 +454,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
-
-#VioletParts init
-PRODUCT_PACKAGES += \
-    init.violetparts.sh \
-    init.violetparts.rc
-
-# Xiaomi Doze
-PRODUCT_PACKAGES += \
-    XiaomiDoze
 
 # Wifi
 PRODUCT_PACKAGES += \
