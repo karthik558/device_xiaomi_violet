@@ -361,6 +361,13 @@ PRODUCT_PACKAGES += \
     libqti-perfd-client \
     vendor.qti.hardware.perf@2.0.vendor
 
+# Prebuilt Kernel
+LOCAL_KERNEL := device/xiaomi/violet-kernel/Image.gz-dtb
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
+
+PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/violet-kernel/sm6150/kernel-headers
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.sm6150-libperfmgr \
