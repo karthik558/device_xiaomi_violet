@@ -36,7 +36,10 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/sm8150/display \
     hardware/qcom-caf/sm8150/media \
-    hardware/qcom-caf/sm8150/audio
+    hardware/qcom-caf/sm8150/audio \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/xiaomi
 
 # Permissions
 PRODUCT_COPY_FILES += \
