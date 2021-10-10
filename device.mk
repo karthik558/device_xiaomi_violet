@@ -41,7 +41,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/sm8150/media \
     hardware/qcom-caf/sm8150/audio \
     hardware/google/interfaces \
-    hardware/xiaomi
+    hardware/xiaomi \
+    vendor/qcom/opensource/dataservices
 
 # Permissions
 PRODUCT_COPY_FILES += \
