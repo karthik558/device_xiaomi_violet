@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The Potato-OS Project
+# Copyright (C) 2021 The AEX Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -7,14 +7,14 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common Potato stuff.
-$(call inherit-product, vendor/potato/config/common_full_phone.mk)
+# Inherit some common AEX stuff.
+$(call inherit-product, vendor/aosp/config/common.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := potato_violet
+PRODUCT_NAME := aosp_violet
 PRODUCT_DEVICE := violet
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 7 Pro

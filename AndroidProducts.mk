@@ -1,13 +1,13 @@
 #
-# Copyright (C) 2021 The Potato-OS Project
+# Copyright (C) 2021 The AEX Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/potato_violet.mk
+    $(LOCAL_DIR)/aosp_violet.mk
 
 COMMON_LUNCH_CHOICES := \
-    potato_violet-userdebug \
-    potato_violet-user \
-    potato_violet-eng
+    aosp_violet-userdebug \
+    aosp_violet-user \
+    aosp_violet-eng
