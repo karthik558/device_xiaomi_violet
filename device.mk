@@ -396,6 +396,10 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.1.vendor \
     android.hardware.secure_element@1.2.vendor
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.0.vendor
+
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_xiaomi
