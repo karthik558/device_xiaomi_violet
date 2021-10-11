@@ -408,12 +408,6 @@ PRODUCT_PACKAGES += \
     librecovery_updater_xiaomi \
     init.safailnet.rc
 
-# Sounds (default)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.ringtone=The_big_adventure.ogg \
-    ro.config.notification_sound=Popcorn.ogg \
-    ro.config.alarm_alert=Bright_morning.ogg
-
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
