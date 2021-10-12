@@ -7,6 +7,9 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
+# Inherit Gapps
+$(call inherit-product, vendor/gms/gms_full.mk)
+
 # Inherit some common Potato stuff.
 $(call inherit-product, vendor/potato/config/common_full_phone.mk)
 
