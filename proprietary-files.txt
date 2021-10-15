@@ -486,6 +486,17 @@ vendor/lib/libcppf.so|70d5c828d409ea0580d087cca937ae956715c821
 vendor/lib/librmp.so|329fdbba89b4cf2633809bd2b350aade192fb56e
 vendor/lib/mediadrm/libwvdrmengine.so|012a554cd7e1d593e90e55d6bad257808d6ee04d
 
+# DRM  Widevine Firmware - from DAVINCIGLOBAL
+widevine.b00:vendor/firmware/widevine.b00|a4861cd7586db67a0ebcbdcd776675395ed03efd
+widevine.b01:vendor/firmware/widevine.b01|91f4b94e692559d97aea6658c7ee21a3d32c580c
+widevine.b02:vendor/firmware/widevine.b02|24834a948d3ecdf54e7e443e604a17bda2a28d0e
+widevine.b03:vendor/firmware/widevine.b03|ee66bf2ea0961ea2387d6c0ba0cfcbc4da19ad13
+widevine.b04:vendor/firmware/widevine.b04|2ae0cd8adffb808d6b16bcd2c24c1ea1753922a9
+widevine.b05:vendor/firmware/widevine.b05|79e5343f49e9908fcf1433ed3119bf9aa707a55b
+widevine.b06:vendor/firmware/widevine.b06|d2b719ed34e99971d7dfd07d35261d568638984f
+widevine.b07:vendor/firmware/widevine.b07|7f8e156f2b21da583533f6965e4abb84e24c62c5
+widevine.mdt:vendor/firmware/widevine.mdt|cbb405841f7bd2bf345acdfe6f1eab0de4904c84
+
 # DRM - Widevine -L1 - from DAVINCIGLOBAL
 vendor/lib64/liboemcrypto.so|2cee717b25559030a61709e826b4a5dae6043c20
 vendor/lib/liboemcrypto.so|b349d1d049709bbdff15a133698264dc8c01db14
